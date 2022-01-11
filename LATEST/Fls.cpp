@@ -2,6 +2,6 @@
 
 class_Fls Fls;
 
-void class_Fls::InitFunction(void){
+FUNC(void, FLS_CODE) class_Fls::InitFunction(void){
 }
 

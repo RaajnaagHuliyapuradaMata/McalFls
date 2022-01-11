@@ -4,7 +4,7 @@
 
 class class_Fls{
    public:
-      void InitFunction(void);
+      FUNC(void, FLS_CODE) InitFunction(void);
 };
 
 extern class_Fls Fls;
