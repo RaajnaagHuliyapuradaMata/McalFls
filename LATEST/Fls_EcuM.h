@@ -1,14 +1,15 @@
+#pragma once
 /*****************************************************/
-/* File   : Fls.cpp                                  */
+/* File   : Fls_EcuM.h                               */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "Fls.h"
+#include "Compiler_Cfg_Fls.h"
 
-#include "Fls_EcuM.h"
+#include "EcuM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -21,6 +22,13 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
+class class_Fls_EcuM : public class_EcuM_Client{
+   public:
+/*****************************************************/
+/* FUNCTIONS                                         */
+/*****************************************************/
+      FUNC(void, FLS_CODE) InitFunction(void);
+};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -33,45 +41,7 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-class_Fls Fls;
-class_Fls_EcuM Fls_EcuM;
-class_Fls_EcuM *Fls_EcuM_ptr = &Fls_EcuM;
-
-/*****************************************************/
-/* FUNCTIONS                                         */
-/*****************************************************/
-FUNC(void, FLS_CODE) class_Fls_EcuM::InitFunction(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::Erase(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::Write(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::Cancel(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::GetStatus(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::GetJobResult(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::Read(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::Compare(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::SetMode(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::GetVersionInfo(void){
-}
-
-FUNC(void, FLS_CODE) class_Fls::MainFunction(void){
-}
+extern class_Fls_EcuM *Fls_EcuM_ptr;
 
 /*****************************************************/
 /* EOF                                               */

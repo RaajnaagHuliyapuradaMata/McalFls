@@ -26,7 +26,6 @@ class class_Fls{
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, FLS_CODE) InitFunction   (void);
       FUNC(void, FLS_CODE) Erase          (void);
       FUNC(void, FLS_CODE) Write          (void);
       FUNC(void, FLS_CODE) Cancel         (void);
