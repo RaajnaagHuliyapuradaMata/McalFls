@@ -33,9 +33,9 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-class_Fls Fls;
 class_Fls_EcuM Fls_EcuM;
-class_Fls_EcuM *Fls_EcuM_ptr = &Fls_EcuM;
+class_EcuM_Client *EcuM_Client_ptr_Fls = &Fls_EcuM;
+class_Fls Fls;
 
 /*****************************************************/
 /* FUNCTIONS                                         */

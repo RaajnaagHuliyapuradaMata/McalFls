@@ -41,7 +41,7 @@ class class_Fls_EcuM : public class_EcuM_Client{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern class_Fls_EcuM *Fls_EcuM_ptr;
+extern class_EcuM_Client *EcuM_Client_ptr_Fls;
 
 /*****************************************************/
 /* EOF                                               */
