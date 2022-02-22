@@ -1,14 +1,15 @@
 #pragma once
 /*****************************************************/
-/* File   : Fls.h                                    */
+/* File   : Fls_SchM.h                               */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "Std_Types.h"
 #include "Compiler_Cfg_Fls.h"
+
+#include "SchM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -21,21 +22,12 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class class_Fls{
+class interface_Fls_SchM : public interface_SchM_Client{
    public:
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, FLS_CODE) Erase          (void);
-      FUNC(void, FLS_CODE) Write          (void);
-      FUNC(void, FLS_CODE) Cancel         (void);
-      FUNC(void, FLS_CODE) GetStatus      (void);
-      FUNC(void, FLS_CODE) GetJobResult   (void);
-      FUNC(void, FLS_CODE) Read           (void);
-      FUNC(void, FLS_CODE) Compare        (void);
-      FUNC(void, FLS_CODE) SetMode        (void);
-      FUNC(void, FLS_CODE) GetVersionInfo (void);
-      FUNC(void, FLS_CODE) MainFunction   (void);
+      FUNC(void, FLS_CODE) MainFunction(void);
 };
 
 /*****************************************************/
@@ -49,7 +41,7 @@ class class_Fls{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern class_Fls Fls;
+extern interface_Fls_SchM *SchM_Client_ptr_Fls;
 
 /*****************************************************/
 /* EOF                                               */

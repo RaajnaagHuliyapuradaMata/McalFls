@@ -1,15 +1,14 @@
 #pragma once
 /*****************************************************/
-/* File   : Fls_EcuM.h                               */
+/* File   : Fls_Unused.h                             */
 /* Author : Naagraaj HM                              */
 /*****************************************************/
 
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
+#include "Std_Types.h"
 #include "Compiler_Cfg_Fls.h"
-
-#include "EcuM_Client.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -22,13 +21,20 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
-class interface_Fls_EcuM : public interface_EcuM_Client{
+class class_Fls_Unused{
    public:
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, FLS_CODE) InitFunction   (void);
-      FUNC(void, FLS_CODE) DeInitFunction (void);
+      FUNC(void, FLS_CODE) Erase          (void);
+      FUNC(void, FLS_CODE) Write          (void);
+      FUNC(void, FLS_CODE) Cancel         (void);
+      FUNC(void, FLS_CODE) GetStatus      (void);
+      FUNC(void, FLS_CODE) GetJobResult   (void);
+      FUNC(void, FLS_CODE) Read           (void);
+      FUNC(void, FLS_CODE) Compare        (void);
+      FUNC(void, FLS_CODE) SetMode        (void);
+      FUNC(void, FLS_CODE) GetVersionInfo (void);
 };
 
 /*****************************************************/
@@ -42,7 +48,7 @@ class interface_Fls_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-extern interface_Fls_EcuM *EcuM_Client_ptr_Fls;
+//extern class_Fls Fls;
 
 /*****************************************************/
 /* EOF                                               */

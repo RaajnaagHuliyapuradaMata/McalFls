@@ -6,9 +6,10 @@
 /*****************************************************/
 /* #INCLUDES                                         */
 /*****************************************************/
-#include "Fls.h"
-
+#include "module.h"
 #include "Fls_EcuM.h"
+#include "Fls_SchM.h"
+#include "Fls_Unused.h"
 
 /*****************************************************/
 /* #DEFINES                                          */
@@ -21,6 +22,16 @@
 /*****************************************************/
 /* TYPEDEFS                                          */
 /*****************************************************/
+class module_Fls:
+      public abstract_module
+   ,  public interface_Fls_EcuM
+   ,  public interface_Fls_SchM
+{
+   public:
+      FUNC(void, FLS_CODE) InitFunction   (void);
+      FUNC(void, FLS_CODE) DeInitFunction (void);
+      FUNC(void, FLS_CODE) MainFunction   (void);
+};
 
 /*****************************************************/
 /* CONSTS                                            */
@@ -33,44 +44,48 @@
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-class_Fls_EcuM Fls_EcuM;
-class_EcuM_Client *EcuM_Client_ptr_Fls = &Fls_EcuM;
-class_Fls Fls;
+module_Fls Fls;
+
+interface_Fls_EcuM *EcuM_Client_ptr_Fls = &Fls;
+interface_Fls_SchM *SchM_Client_ptr_Fls = &Fls;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-FUNC(void, FLS_CODE) class_Fls_EcuM::InitFunction(void){
+FUNC(void, FLS_CODE) module_Fls::InitFunction(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::Erase(void){
+FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::Write(void){
+FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::Cancel(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::Erase(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::GetStatus(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::Write(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::GetJobResult(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::Cancel(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::Read(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::GetStatus(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::Compare(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::GetJobResult(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::SetMode(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::Read(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::GetVersionInfo(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::Compare(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls::MainFunction(void){
+FUNC(void, FLS_CODE) class_Fls_Unused::SetMode(void){
+}
+
+FUNC(void, FLS_CODE) class_Fls_Unused::GetVersionInfo(void){
 }
 
 /*****************************************************/
