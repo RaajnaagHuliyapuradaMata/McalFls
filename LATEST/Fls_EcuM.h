@@ -27,8 +27,8 @@ class interface_Fls_EcuM : public interface_EcuM_Client{
 /*****************************************************/
 /* FUNCTIONS                                         */
 /*****************************************************/
-      FUNC(void, FLS_CODE) InitFunction   (void);
-      FUNC(void, FLS_CODE) DeInitFunction (void);
+      virtual FUNC(void, FLS_CODE) InitFunction   (void) = 0;
+      virtual FUNC(void, FLS_CODE) DeInitFunction (void) = 0;
 };
 
 /*****************************************************/
