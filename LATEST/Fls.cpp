@@ -24,8 +24,6 @@
 /*****************************************************/
 class module_Fls:
       public abstract_module
-   ,  public interface_Fls_EcuM
-   ,  public interface_Fls_SchM
 {
    public:
       FUNC(void, FLS_CODE) InitFunction   (void);
@@ -44,10 +42,9 @@ class module_Fls:
 /*****************************************************/
 /* OBJECTS                                           */
 /*****************************************************/
-module_Fls Fls;
-
-interface_Fls_EcuM *EcuM_Client_ptr_Fls = &Fls;
-interface_Fls_SchM *SchM_Client_ptr_Fls = &Fls;
+module_Fls     Fls;
+infEcuMClient* gptrinfEcuMClient_Fls = &Fls;
+infSchMClient* gptrinfSchMClient_Fls = &Fls;
 
 /*****************************************************/
 /* FUNCTIONS                                         */
