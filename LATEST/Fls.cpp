@@ -7,8 +7,8 @@
 /* #INCLUDES                                         */
 /*****************************************************/
 #include "module.h"
-#include "Fls_EcuM.h"
-#include "Fls_SchM.h"
+#include "infFls_EcuM.h"
+#include "infFls_SchM.h"
 #include "Fls_Unused.h"
 
 /*****************************************************/
@@ -28,6 +28,7 @@ class module_Fls:
    public:
       FUNC(void, FLS_CODE) InitFunction   (void);
       FUNC(void, FLS_CODE) DeInitFunction (void);
+      FUNC(void, FLS_CODE) GetVersionInfo (void);
       FUNC(void, FLS_CODE) MainFunction   (void);
 };
 
@@ -44,6 +45,7 @@ class module_Fls:
 /*****************************************************/
 module_Fls     Fls;
 infEcuMClient* gptrinfEcuMClient_Fls = &Fls;
+infDcmClient*  gptrinfDcmClient_Fls  = &Fls;
 infSchMClient* gptrinfSchMClient_Fls = &Fls;
 
 /*****************************************************/
@@ -53,6 +55,9 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(void){
 }
 
 FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
+}
+
+FUNC(void, FLS_CODE) module_Fls::GetVersionInfo(void){
 }
 
 FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
