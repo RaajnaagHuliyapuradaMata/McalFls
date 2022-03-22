@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "infFls_Version.h"
+#include "Fls_Cfg.h"
 #include "infFls_EcuM.h"
 #include "infFls_Dcm.h"
 #include "infFls_SchM.h"
@@ -15,10 +15,19 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define FLS_AR_RELEASE_MAJOR_VERSION                                           4
+#define FLS_AR_RELEASE_MINOR_VERSION                                           3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
+#if(FLS_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
+   #error "Incompatible FLS_AR_RELEASE_MAJOR_VERSION!"
+#endif
+
+#if(FLS_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
+   #error "Incompatible FLS_AR_RELEASE_MINOR_VERSION!"
+#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -61,6 +70,11 @@ FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
 }
 
 FUNC(void, FLS_CODE) module_Fls::GetVersionInfo(void){
+#if(STD_ON == Fls_DevErrorDetect)
+//TBD: API parameter check
+   Det_ReportError(
+   );
+#endif
 }
 
 FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
