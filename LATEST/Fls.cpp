@@ -7,7 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.h"
-#include "Fls_Cfg.h"
+#include "CfgFls.h"
 #include "infFls_EcuM.h"
 #include "infFls_Dcm.h"
 #include "infFls_SchM.h"
