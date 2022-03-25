@@ -6,11 +6,11 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.h"
-#include "CfgFls.h"
-#include "infFls_EcuM.h"
-#include "infFls_Dcm.h"
-#include "infFls_SchM.h"
+#include "module.hpp"
+#include "CfgFls.hpp"
+#include "infFls_EcuM.hpp"
+#include "infFls_Dcm.hpp"
+#include "infFls_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -90,7 +90,7 @@ FUNC(void, FLS_CODE) module_Fls::GetVersionInfo(void){
 FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
 }
 
-#include "Fls_Unused.h"
+#include "Fls_Unused.hpp"
 
 FUNC(void, FLS_CODE) class_Fls_Unused::Erase(void){
 }
