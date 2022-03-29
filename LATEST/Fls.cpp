@@ -7,7 +7,6 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "module.hpp"
-#include "CfgFls.hpp"
 #include "infFls_EcuM.hpp"
 #include "infFls_Dcm.hpp"
 #include "infFls_SchM.hpp"
@@ -36,37 +35,40 @@ class module_Fls:
       public abstract_module
 {
    public:
+      module_Fls(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
+      }
       FUNC(void, FLS_CODE) InitFunction   (void);
       FUNC(void, FLS_CODE) DeInitFunction (void);
-      FUNC(void, FLS_CODE) GetVersionInfo (void);
       FUNC(void, FLS_CODE) MainFunction   (void);
-
-   private:
-      CONST(Std_TypeVersionInfo, FLS_CONST) VersionInfo = {
-            0x0000
-         ,  0xFFFF
-         ,  0x01
-         ,  '0'
-         ,  '1'
-         ,  '0'
-      };
 };
+
+extern VAR(module_Fls, FLS_VAR) Fls;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
 /******************************************************************************/
+CONSTP2VAR(infEcuMClient, FLS_VAR, FLS_CONST) gptrinfEcuMClient_Fls = &Fls;
+CONSTP2VAR(infDcmClient,  FLS_VAR, FLS_CONST) gptrinfDcmClient_Fls  = &Fls;
+CONSTP2VAR(infSchMClient, FLS_VAR, FLS_CONST) gptrinfSchMClient_Fls = &Fls;
 
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
+#include "CfgFls.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_Fls, FLS_VAR) Fls;
-CONSTP2VAR(infEcuMClient, FLS_VAR, FLS_CONST) gptrinfEcuMClient_Fls = &Fls;
-CONSTP2VAR(infDcmClient,  FLS_VAR, FLS_CONST) gptrinfDcmClient_Fls  = &Fls;
-CONSTP2VAR(infSchMClient, FLS_VAR, FLS_CONST) gptrinfSchMClient_Fls = &Fls;
+VAR(module_Fls, FLS_VAR) Fls(
+   {
+         0x0000
+      ,  0xFFFF
+      ,  0x01
+      ,  '0'
+      ,  '1'
+      ,  '0'
+   }
+);
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -77,14 +79,6 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(void){
 
 FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
    Fls.IsInitDone = E_NOT_OK;
-}
-
-FUNC(void, FLS_CODE) module_Fls::GetVersionInfo(void){
-#if(STD_ON == Fls_DevErrorDetect)
-//TBD: API parameter check
-   Det_ReportError(
-   );
-#endif
 }
 
 FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
