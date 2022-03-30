@@ -6,7 +6,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "module.hpp"
+#include "Module.hpp"
 #include "infFls_EcuM.hpp"
 #include "infFls_Dcm.hpp"
 #include "infFls_SchM.hpp"
@@ -37,6 +37,9 @@ class module_Fls:
    public:
       module_Fls(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
       }
+      FUNC(void, _CODE) InitFunction(
+         CONSTP2CONST(CfgModule_TypeAbstract, _CONFIG_DATA, _APPL_CONST) lptrCfgModule
+      );
       FUNC(void, FLS_CODE) InitFunction   (void);
       FUNC(void, FLS_CODE) DeInitFunction (void);
       FUNC(void, FLS_CODE) MainFunction   (void);
@@ -73,7 +76,19 @@ VAR(module_Fls, FLS_VAR) Fls(
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, FLS_CODE) module_Fls::InitFunction(void){
+FUNC(void, FLS_CODE) module_Fls::InitFunction(
+   CONSTP2CONST(CfgFls_Type, CFGFLS_CONFIG_DATA, CFGFLS_APPL_CONST) lptrCfgFls
+){
+   if(NULL_PTR == lptrCfgFls){
+#if(STD_ON == Fls_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+// check lptrCfgFls for memory faults
+// use PBcfg_Fls as back-up configuration
+   }
    Fls.IsInitDone = E_OK;
 }
 
