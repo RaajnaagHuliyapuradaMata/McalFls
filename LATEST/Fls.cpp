@@ -78,6 +78,7 @@ VAR(module_Fls, FLS_VAR) Fls(
 FUNC(void, FLS_CODE) module_Fls::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
 ){
+#if(STD_ON == Fls_InitCheck)
    if(E_OK == IsInitDone){
 #if(STD_ON == Fls_DevErrorDetect)
       Det_ReportError(
@@ -85,6 +86,7 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 #endif
    }
    else{
+#endif
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == Fls_DevErrorDetect)
          Det_ReportError(
@@ -96,10 +98,13 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 // use PBcfg_Fls as back-up configuration
       }
       IsInitDone = E_OK;
+#if(STD_ON == Fls_InitCheck)
    }
+#endif
 }
 
 FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
+#if(STD_ON == Fls_InitCheck)
    if(E_OK != IsInitDone){
 #if(STD_ON == Fls_DevErrorDetect)
       Det_ReportError(
@@ -107,11 +112,26 @@ FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
 #endif
    }
    else{
+#endif
       IsInitDone = E_NOT_OK;
+#if(STD_ON == Fls_InitCheck)
    }
+#endif
 }
 
 FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
+#if(STD_ON == Fls_InitCheck)
+   if(E_OK != IsInitDone){
+#if(STD_ON == Fls_DevErrorDetect)
+      Det_ReportError(
+      );
+#endif
+   }
+   else{
+#endif
+#if(STD_ON == Fls_InitCheck)
+   }
+#endif
 }
 
 class class_Fls_Unused{
