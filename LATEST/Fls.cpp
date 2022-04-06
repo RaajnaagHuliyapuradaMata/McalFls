@@ -14,18 +14,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define FLS_AR_RELEASE_MAJOR_VERSION                                           4
-#define FLS_AR_RELEASE_MINOR_VERSION                                           3
+#define FLS_AR_RELEASE_VERSION_MAJOR                                           4
+#define FLS_AR_RELEASE_VERSION_MINOR                                           3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(FLS_AR_RELEASE_MAJOR_VERSION != STD_AR_RELEASE_MAJOR_VERSION)
-   #error "Incompatible FLS_AR_RELEASE_MAJOR_VERSION!"
+#if(FLS_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible FLS_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(FLS_AR_RELEASE_MINOR_VERSION != STD_AR_RELEASE_MINOR_VERSION)
-   #error "Incompatible FLS_AR_RELEASE_MINOR_VERSION!"
+#if(FLS_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible FLS_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -63,8 +63,10 @@ CONSTP2VAR(infSchMClient, FLS_VAR, FLS_CONST) gptrinfSchMClient_Fls = &Fls;
 /******************************************************************************/
 VAR(module_Fls, FLS_VAR) Fls(
    {
-         0x0000
-      ,  0xFFFF
+         FLS_AR_RELEASE_VERSION_MAJOR
+      ,  FLS_AR_RELEASE_VERSION_MINOR
+      ,  0x00
+      ,  0xFF
       ,  0x01
       ,  '0'
       ,  '1'
