@@ -96,8 +96,14 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 #endif
       }
       else{
+         if(STD_LOW){
 // check lptrCfgModule for memory faults
-// use PBcfg_Fls as back-up configuration
+            lptrCfg = lptrCfgModule;
+         }
+         else{
+// use PBcfg_CanIf as back-up configuration
+            lptrCfg = PBcfg_CanIf;
+         }
       }
       IsInitDone = E_OK;
 #if(STD_ON == Fls_InitCheck)
