@@ -77,6 +77,14 @@ VAR(module_Fls, FLS_VAR) Fls(
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
+#if(STD_ON == _ReSIM)
+#include <iostream>
+#include <fstream>
+using namespace std;
+using std::ios;
+#else
+#endif
+
 FUNC(void, FLS_CODE) module_Fls::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
 ){
@@ -103,6 +111,22 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
          else{
 // use PBcfgCanIf as back-up configuration
             lptrCfg = &PBcfgFls;
+
+#if(STD_ON == _ReSIM)
+            std::ifstream fin(
+                  "Fls.hex" //argv[1]
+               ,  ios::in
+            );
+
+            while(fin){
+               string line;
+               getline(fin, line);
+               cout<<line<<endl;
+            }
+
+            fin.close();
+#else
+#endif
          }
       }
       IsInitDone = E_OK;
