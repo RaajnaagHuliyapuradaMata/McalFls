@@ -31,8 +31,21 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+class class_Fls_Functionality{
+   public:
+      FUNC(void, FLS_CODE) Erase          (void);
+      FUNC(void, FLS_CODE) Write          (void);
+      FUNC(void, FLS_CODE) Cancel         (void);
+      FUNC(void, FLS_CODE) GetStatus      (void);
+      FUNC(void, FLS_CODE) GetJobResult   (void);
+      FUNC(void, FLS_CODE) Read           (void);
+      FUNC(void, FLS_CODE) Compare        (void);
+      FUNC(void, FLS_CODE) SetMode        (void);
+};
+
 class module_Fls:
       public abstract_module
+   ,  public class_Fls_Functionality
 {
    public:
       module_Fls(Std_TypeVersionInfo lVersionInfo) : abstract_module(lVersionInfo){
@@ -92,6 +105,10 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
    if(E_OK == IsInitDone){
 #if(STD_ON == Fls_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -100,6 +117,10 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
       if(NULL_PTR == lptrCfgModule){
 #if(STD_ON == Fls_DevErrorDetect)
          Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
          );
 #endif
       }
@@ -140,6 +161,10 @@ FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == Fls_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -156,6 +181,10 @@ FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
    if(E_OK != IsInitDone){
 #if(STD_ON == Fls_DevErrorDetect)
       Det_ReportError(
+      0 //TBD: IdModule
+   ,  0 //TBD: IdInstance
+   ,  0 //TBD: IdApi
+   ,  0 //TBD: IdError
       );
 #endif
    }
@@ -166,40 +195,28 @@ FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
 #endif
 }
 
-class class_Fls_Unused{
-   public:
-      FUNC(void, FLS_CODE) Erase          (void);
-      FUNC(void, FLS_CODE) Write          (void);
-      FUNC(void, FLS_CODE) Cancel         (void);
-      FUNC(void, FLS_CODE) GetStatus      (void);
-      FUNC(void, FLS_CODE) GetJobResult   (void);
-      FUNC(void, FLS_CODE) Read           (void);
-      FUNC(void, FLS_CODE) Compare        (void);
-      FUNC(void, FLS_CODE) SetMode        (void);
-};
-
-FUNC(void, FLS_CODE) class_Fls_Unused::Erase(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::Erase(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Unused::Write(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::Write(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Unused::Cancel(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::Cancel(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Unused::GetStatus(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::GetStatus(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Unused::GetJobResult(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::GetJobResult(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Unused::Read(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::Read(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Unused::Compare(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::Compare(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Unused::SetMode(void){
+FUNC(void, FLS_CODE) class_Fls_Functionality::SetMode(void){
 }
 
 /******************************************************************************/
