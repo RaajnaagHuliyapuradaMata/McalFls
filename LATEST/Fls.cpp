@@ -31,18 +31,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class class_Fls_Functionality{
-   public:
-      FUNC(void, FLS_CODE) Erase          (void);
-      FUNC(void, FLS_CODE) Write          (void);
-      FUNC(void, FLS_CODE) Cancel         (void);
-      FUNC(void, FLS_CODE) GetStatus      (void);
-      FUNC(void, FLS_CODE) GetJobResult   (void);
-      FUNC(void, FLS_CODE) Read           (void);
-      FUNC(void, FLS_CODE) Compare        (void);
-      FUNC(void, FLS_CODE) SetMode        (void);
-};
-
 class module_Fls:
       public abstract_module
    ,  public class_Fls_Functionality
