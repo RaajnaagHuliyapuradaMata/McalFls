@@ -7,6 +7,7 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "Fls_core.hpp"
 #include "infFls_EcuM.hpp"
 #include "infFls_Dcm.hpp"
 #include "infFls_SchM.hpp"
