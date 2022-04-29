@@ -7,10 +7,9 @@
 /* #INCLUDES                                                                  */
 /******************************************************************************/
 #include "Module.hpp"
+#include "CfgFls.hpp"
 #include "Fls_core.hpp"
-#include "infFls_EcuM.hpp"
-#include "infFls_Dcm.hpp"
-#include "infFls_SchM.hpp"
+#include "infFls.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -44,6 +43,7 @@ class module_Fls:
       );
       FUNC(void, FLS_CODE) DeInitFunction (void);
       FUNC(void, FLS_CODE) MainFunction   (void);
+      FLS_CORE_FUNCTIONALITIES
 };
 
 extern VAR(module_Fls, FLS_VAR) Fls;
@@ -58,7 +58,6 @@ CONSTP2VAR(infSchMClient, FLS_VAR, FLS_CONST) gptrinfSchMClient_Fls = &Fls;
 /******************************************************************************/
 /* PARAMS                                                                     */
 /******************************************************************************/
-#include "CfgFls.hpp"
 
 /******************************************************************************/
 /* OBJECTS                                                                    */

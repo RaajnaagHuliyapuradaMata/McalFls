@@ -1,36 +1,19 @@
 #pragma once
 /******************************************************************************/
-/* File   : Fls_core.hpp                                                      */
+/* File   : infFls.hpp                                                        */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CompilerCfg_Fls.hpp"
+#include "infFls_EcuM.hpp"
+#include "infFls_Dcm.hpp"
+#include "infFls_SchM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define FLS_CORE_FUNCTIONALITIES                                               \
-              FUNC(void, FLS_CODE) Erase          (void);                      \
-              FUNC(void, FLS_CODE) Write          (void);                      \
-              FUNC(void, FLS_CODE) Cancel         (void);                      \
-              FUNC(void, FLS_CODE) GetStatus      (void);                      \
-              FUNC(void, FLS_CODE) GetJobResult   (void);                      \
-              FUNC(void, FLS_CODE) Read           (void);                      \
-              FUNC(void, FLS_CODE) Compare        (void);                      \
-              FUNC(void, FLS_CODE) SetMode        (void);                      \
-
-#define FLS_CORE_FUNCTIONALITIES_VIRTUAL                                       \
-      virtual FUNC(void, FLS_CODE) Erase          (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) Write          (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) Cancel         (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) GetStatus      (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) GetJobResult   (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) Read           (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) Compare        (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) SetMode        (void) = 0;                  \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -39,10 +22,6 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class class_Fls_Functionality{
-   public:
-      FLS_CORE_FUNCTIONALITIES_VIRTUAL
-};
 
 /******************************************************************************/
 /* CONSTS                                                                     */
