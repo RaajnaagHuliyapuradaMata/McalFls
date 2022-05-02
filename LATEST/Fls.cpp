@@ -183,28 +183,28 @@ FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
 #endif
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::Erase(void){
+FUNC(void, FLS_CODE) module_Fls::Erase(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::Write(void){
+FUNC(void, FLS_CODE) module_Fls::Write(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::Cancel(void){
+FUNC(void, FLS_CODE) module_Fls::Cancel(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::GetStatus(void){
+FUNC(void, FLS_CODE) module_Fls::GetStatus(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::GetJobResult(void){
+FUNC(void, FLS_CODE) module_Fls::GetJobResult(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::Read(void){
+FUNC(void, FLS_CODE) module_Fls::Read(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::Compare(void){
+FUNC(void, FLS_CODE) module_Fls::Compare(void){
 }
 
-FUNC(void, FLS_CODE) class_Fls_Functionality::SetMode(void){
+FUNC(void, FLS_CODE) module_Fls::SetMode(void){
 }
 
 /******************************************************************************/
