@@ -90,35 +90,11 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == Fls_InitCheck)
-   if(E_OK == IsInitDone){
-#if(STD_ON == Fls_DevErrorDetect)
-      Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-      );
+   if(E_OK != IsInitDone){
 #endif
-   }
-   else{
-#endif
-      if(NULL_PTR == lptrCfgModule){
-#if(STD_ON == Fls_DevErrorDetect)
-         Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-         );
-#endif
-      }
-      else{
-         if(STD_LOW){
-// check lptrCfgModule for memory faults
-            lptrCfg = lptrCfgModule;
-         }
-         else{
-// use PBcfgCanIf as back-up configuration
+      if(NULL_PTR != lptrCfgModule){
+         if(STD_HIGH){
+            // use PBcfgCanIf as back-up configuration
             lptrCfg = &PBcfgFls;
 
 #if(STD_ON == _ReSIM)
@@ -137,48 +113,72 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 #else
 #endif
          }
+         else{
+            // check lptrCfgModule for memory faults
+            lptrCfg = lptrCfgModule;
+         }
       }
-      IsInitDone = E_OK;
+      else{
+#if(STD_ON == Fls_DevErrorDetect)
+         Det_ReportError(
+               0 //TBD: IdModule
+            ,  0 //TBD: IdInstance
+            ,  0 //TBD: IdApi
+            ,  0 //TBD: IdError
+         );
+#endif
+      }
 #if(STD_ON == Fls_InitCheck)
+      IsInitDone = E_OK;
+   }
+   else{
+#if(STD_ON == Fls_DevErrorDetect)
+      Det_ReportError(
+            0 //TBD: IdModule
+         ,  0 //TBD: IdInstance
+         ,  0 //TBD: IdApi
+         ,  0 //TBD: IdError
+      );
+#endif
    }
 #endif
 }
 
 FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
 #if(STD_ON == Fls_InitCheck)
-   if(E_OK != IsInitDone){
-#if(STD_ON == Fls_DevErrorDetect)
-      Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-      );
+   if(E_OK == IsInitDone){
 #endif
+#if(STD_ON == Fls_InitCheck)
+      IsInitDone = E_NOT_OK;
    }
    else{
+#if(STD_ON == Fls_DevErrorDetect)
+      Det_ReportError(
+            0 //TBD: IdModule
+         ,  0 //TBD: IdInstance
+         ,  0 //TBD: IdApi
+         ,  0 //TBD: IdError
+      );
 #endif
-      IsInitDone = E_NOT_OK;
-#if(STD_ON == Fls_InitCheck)
    }
 #endif
 }
 
 FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
 #if(STD_ON == Fls_InitCheck)
-   if(E_OK != IsInitDone){
-#if(STD_ON == Fls_DevErrorDetect)
-      Det_ReportError(
-      0 //TBD: IdModule
-   ,  0 //TBD: IdInstance
-   ,  0 //TBD: IdApi
-   ,  0 //TBD: IdError
-      );
-#endif
-   }
-   else{
+   if(E_OK == IsInitDone){
 #endif
 #if(STD_ON == Fls_InitCheck)
+   }
+   else{
+#if(STD_ON == Fls_DevErrorDetect)
+      Det_ReportError(
+            0 //TBD: IdModule
+         ,  0 //TBD: IdInstance
+         ,  0 //TBD: IdApi
+         ,  0 //TBD: IdError
+      );
+#endif
    }
 #endif
 }
