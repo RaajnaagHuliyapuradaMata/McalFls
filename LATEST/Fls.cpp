@@ -137,7 +137,7 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  FLS_E_UNINIT
       );
 #endif
    }
@@ -157,7 +157,7 @@ FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  FLS_E_UNINIT
       );
 #endif
    }
@@ -176,7 +176,7 @@ FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  0 //TBD: IdError
+         ,  FLS_E_UNINIT
       );
 #endif
    }
