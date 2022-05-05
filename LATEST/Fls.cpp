@@ -94,9 +94,7 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 #endif
       if(NULL_PTR != lptrCfgModule){
          if(STD_HIGH){
-            // use PBcfgCanIf as back-up configuration
-            lptrCfg = &PBcfgFls;
-
+            lptrCfg = lptrCfgModule;
 #if(STD_ON == _ReSIM)
             std::ifstream fin(
                   "Fls.hex" //argv[1]
@@ -114,8 +112,7 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 #endif
          }
          else{
-            // check lptrCfgModule for memory faults
-            lptrCfg = lptrCfgModule;
+            lptrCfg = &PBcfgFls;
          }
       }
       else{
