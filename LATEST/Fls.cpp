@@ -97,7 +97,10 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
    CONSTP2CONST(CfgModule_TypeAbstract, FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == Fls_InitCheck)
-   if(E_OK != IsInitDone){
+   if(
+         E_OK
+      != IsInitDone
+   ){
 #endif
       if(NULL_PTR != lptrCfgModule){
          if(STD_HIGH){
@@ -150,7 +153,10 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 
 FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
 #if(STD_ON == Fls_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == Fls_InitCheck)
       IsInitDone = E_NOT_OK;
@@ -170,7 +176,10 @@ FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
 
 FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
 #if(STD_ON == Fls_InitCheck)
-   if(E_OK == IsInitDone){
+   if(
+         E_OK
+      == IsInitDone
+   ){
 #endif
 #if(STD_ON == Fls_InitCheck)
    }
