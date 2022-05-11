@@ -9,7 +9,7 @@
 #include "Module.hpp"
 #include "CfgFls.hpp"
 #include "Fls_core.hpp"
-#include "infFls.hpp"
+#include "infFls_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -32,6 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_Fls:
+   INTERFACES_EXPORTED_FLS
       public abstract_module
    ,  public class_Fls_Functionality
 {
