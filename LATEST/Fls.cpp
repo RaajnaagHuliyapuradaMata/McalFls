@@ -32,7 +32,7 @@
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
 class module_Fls:
-   INTERFACES_EXPORTED_FLS
+      INTERFACES_EXPORTED_FLS
       public abstract_module
    ,  public class_Fls_Functionality
 {
