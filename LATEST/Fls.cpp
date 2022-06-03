@@ -10,6 +10,7 @@
 #include "CfgFls.hpp"
 #include "Fls_core.hpp"
 #include "infFls_Exp.hpp"
+#include "infFls_Imp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
