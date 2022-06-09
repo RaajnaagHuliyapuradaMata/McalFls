@@ -74,10 +74,10 @@ CONSTP2VAR(infSchMClient, FLS_VAR, FLS_CONST) gptrinfSchMClient_Fls = &Fls;
 VAR(module_Fls, FLS_VAR) Fls(
    {
 #if(STD_ON == _ReSIM)
-         "Fls"
+         "Fls",
 #else
 #endif
-      ,  FLS_AR_RELEASE_VERSION_MAJOR
+         FLS_AR_RELEASE_VERSION_MAJOR
       ,  FLS_AR_RELEASE_VERSION_MINOR
       ,  0x00
       ,  0xFF
