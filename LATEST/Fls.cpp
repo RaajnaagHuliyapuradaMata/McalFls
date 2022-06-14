@@ -109,14 +109,14 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
             lptrCfg = lptrCfgModule;
 #if(STD_ON == _ReSIM)
             std::ifstream fin(
-                  "Fls.hex" //argv[1]
+                  "Fls.hex" //TBD: argv[1]
                ,  ios::in
             );
 
             while(fin){
                string line;
                getline(fin, line);
-               cout<<line<<endl;
+               cout<<endl<<line;
             }
 
             fin.close();
