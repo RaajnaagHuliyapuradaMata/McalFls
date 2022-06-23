@@ -153,7 +153,9 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 #endif
 }
 
-FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
+FUNC(void, FLS_CODE) module_Fls::DeInitFunction(
+   void
+){
 #if(STD_ON == Fls_InitCheck)
    if(
          E_OK
@@ -176,7 +178,9 @@ FUNC(void, FLS_CODE) module_Fls::DeInitFunction(void){
 #endif
 }
 
-FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
+FUNC(void, FLS_CODE) module_Fls::MainFunction(
+   void
+){
 #if(STD_ON == Fls_InitCheck)
    if(
          E_OK
@@ -198,28 +202,44 @@ FUNC(void, FLS_CODE) module_Fls::MainFunction(void){
 #endif
 }
 
-FUNC(void, FLS_CODE) module_Fls::Erase(void){
+FUNC(void, FLS_CODE) module_Fls::Erase(
+   void
+){
 }
 
-FUNC(void, FLS_CODE) module_Fls::Write(void){
+FUNC(void, FLS_CODE) module_Fls::Write(
+   void
+){
 }
 
-FUNC(void, FLS_CODE) module_Fls::Cancel(void){
+FUNC(void, FLS_CODE) module_Fls::Cancel(
+   void
+){
 }
 
-FUNC(void, FLS_CODE) module_Fls::GetStatus(void){
+FUNC(void, FLS_CODE) module_Fls::GetStatus(
+   void
+){
 }
 
-FUNC(void, FLS_CODE) module_Fls::GetJobResult(void){
+FUNC(void, FLS_CODE) module_Fls::GetJobResult(
+   void
+){
 }
 
-FUNC(void, FLS_CODE) module_Fls::Read(void){
+FUNC(void, FLS_CODE) module_Fls::Read(
+   void
+){
 }
 
-FUNC(void, FLS_CODE) module_Fls::Compare(void){
+FUNC(void, FLS_CODE) module_Fls::Compare(
+   void
+){
 }
 
-FUNC(void, FLS_CODE) module_Fls::SetMode(void){
+FUNC(void, FLS_CODE) module_Fls::SetMode(
+   void
+){
 }
 
 /******************************************************************************/
