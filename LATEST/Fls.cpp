@@ -90,27 +90,7 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
    ){
 #endif
       if(NULL_PTR != lptrCfgModule){
-         if(STD_HIGH){
-            lptrCfg = lptrCfgModule;
-#if(STD_ON == _ReSIM)
-            std::ifstream fin(
-                  "Fls.hex" //TBD: argv[1]
-               ,  ios::in
-            );
-
-            while(fin){
-               string line;
-               getline(fin, line);
-               cout<<endl<<line;
-            }
-
-            fin.close();
-#else
-#endif
-         }
-         else{
-            lptrCfg = &PBcfgFls;
-         }
+         lptrCfg = lptrCfgModule;
       }
       else{
 #if(STD_ON == Fls_DevErrorDetect)
@@ -122,6 +102,21 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
          );
 #endif
       }
+#if(STD_ON == _ReSIM)
+      std::ifstream fin(
+            "Fls.hex" //TBD: argv[1]
+         ,  ios::in
+      );
+
+      while(fin){
+         string line;
+         getline(fin, line);
+         cout<<endl<<line;
+      }
+
+      fin.close();
+#else
+#endif
 #if(STD_ON == Fls_InitCheck)
       IsInitDone = E_OK;
    }
