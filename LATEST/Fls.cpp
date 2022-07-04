@@ -115,6 +115,14 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
       }
 
       fin.close();
+
+//      if(FALSE){
+         //TBD: Read from Flash -> CfgGen_Fls
+//      }
+//      else{
+         //TBD: Read from File -> CfgGen_Fls
+//      }
+
 #else
 #endif
 #if(STD_ON == Fls_InitCheck)
