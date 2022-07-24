@@ -7,6 +7,7 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
+#include "ConstFls.hpp"
 #include "CfgFls.hpp"
 #include "Fls_core.hpp"
 #include "infFls_Exp.hpp"
@@ -31,13 +32,15 @@ class module_Fls:
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
+      const ConstFls_Type* lptrConst = (ConstFls_Type*)NULL_PTR;
 
    public:
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
       FUNC(void, FLS_CODE) InitFunction(
-         CONSTP2CONST(CfgModule_TypeAbstract, FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
+            CONSTP2CONST(ConstModule_TypeAbstract, FLS_CONST,       FLS_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
       );
       FUNC(void, FLS_CODE) DeInitFunction (void);
       FUNC(void, FLS_CODE) MainFunction   (void);
