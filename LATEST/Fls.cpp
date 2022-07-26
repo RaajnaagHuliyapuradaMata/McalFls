@@ -69,7 +69,7 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
             (NULL_PTR != lptrConstModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = lptrConstModule;
+         lptrConst = (const ConstFls_Type*)lptrConstModule;
          lptrCfg   = lptrCfgModule;
       }
       else{
