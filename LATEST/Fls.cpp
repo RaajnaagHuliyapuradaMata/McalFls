@@ -52,6 +52,8 @@ VAR(module_Fls, FLS_VAR) Fls;
 #include <fstream>
 using namespace std;
 using std::ios;
+
+#include "Fm.hpp"
 #else
 #endif
 
@@ -83,26 +85,15 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
 #endif
       }
 #if(STD_ON == _ReSIM)
-      std::ifstream fin(
-            "Fls.hex" //TBD: argv[1]
-         ,  ios::in
-      );
-
-      while(fin){
-         string line;
-         getline(fin, line);
-         cout<<endl<<line;
-      }
-
-      fin.close();
-
 //      if(FALSE){
          //TBD: Read from Flash -> CfgGen_Fls
 //      }
 //      else{
          //TBD: Read from File -> CfgGen_Fls
+           uint8 au8Data[32768];
+           Fm Fls;
+           Fls.Read(au8Data);
 //      }
-
 #else
 #endif
 #if(STD_ON == Fls_InitCheck)
