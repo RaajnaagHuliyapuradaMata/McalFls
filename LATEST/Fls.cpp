@@ -48,10 +48,10 @@ VAR(module_Fls, FLS_VAR) Fls;
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
 #if(STD_ON == _ReSIM)
-#include <iostream>
-#include <fstream>
-using namespace std;
-using std::ios;
+//#include <iostream>
+//#include <fstream>
+//using namespace std;
+//using std::ios;
 
 #include "Fm.hpp"
 #else
@@ -92,7 +92,8 @@ FUNC(void, FLS_CODE) module_Fls::InitFunction(
          //TBD: Read from File -> CfgGen_Fls
            uint8 au8Data[32768];
            Fm Fls;
-           Fls.Read(au8Data);
+           Fls.Read(        au8Data);
+           Fls.Write(32768, au8Data);
 //      }
 #else
 #endif
