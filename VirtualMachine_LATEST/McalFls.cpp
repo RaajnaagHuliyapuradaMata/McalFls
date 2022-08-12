@@ -13,18 +13,18 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define FLS_AR_RELEASE_VERSION_MAJOR                                           4
-#define FLS_AR_RELEASE_VERSION_MINOR                                           3
+#define MCALFLS_AR_RELEASE_VERSION_MAJOR                                           4
+#define MCALFLS_AR_RELEASE_VERSION_MINOR                                           3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(FLS_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible FLS_AR_RELEASE_VERSION_MAJOR!"
+#if(MCALFLS_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
+   #error "Incompatible MCALFLS_AR_RELEASE_VERSION_MAJOR!"
 #endif
 
-#if(FLS_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible FLS_AR_RELEASE_VERSION_MINOR!"
+#if(MCALFLS_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
+   #error "Incompatible MCALFLS_AR_RELEASE_VERSION_MINOR!"
 #endif
 
 /******************************************************************************/
@@ -42,7 +42,7 @@
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-VAR(module_McalFls, FLS_VAR) McalFls;
+VAR(module_McalFls, MCALFLS_VAR) McalFls;
 
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
@@ -57,9 +57,9 @@ VAR(module_McalFls, FLS_VAR) McalFls;
 #else
 #endif
 
-FUNC(void, FLS_CODE) module_McalFls::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, FLS_CONST,       FLS_APPL_CONST) lptrConstModule
-   ,  CONSTP2CONST(CfgModule_TypeAbstract,   FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
+FUNC(void, MCALFLS_CODE) module_McalFls::InitFunction(
+      CONSTP2CONST(ConstModule_TypeAbstract, MCALFLS_CONST,       MCALFLS_APPL_CONST) lptrConstModule
+   ,  CONSTP2CONST(CfgModule_TypeAbstract,   MCALFLS_CONFIG_DATA, MCALFLS_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == McalFls_InitCheck)
    if(
@@ -106,14 +106,14 @@ FUNC(void, FLS_CODE) module_McalFls::InitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  FLS_E_UNINIT
+         ,  MCALFLS_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, FLS_CODE) module_McalFls::DeInitFunction(
+FUNC(void, MCALFLS_CODE) module_McalFls::DeInitFunction(
    void
 ){
 #if(STD_ON == McalFls_InitCheck)
@@ -131,14 +131,14 @@ FUNC(void, FLS_CODE) module_McalFls::DeInitFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  FLS_E_UNINIT
+         ,  MCALFLS_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, FLS_CODE) module_McalFls::MainFunction(
+FUNC(void, MCALFLS_CODE) module_McalFls::MainFunction(
    void
 ){
 #if(STD_ON == McalFls_InitCheck)
@@ -155,49 +155,49 @@ FUNC(void, FLS_CODE) module_McalFls::MainFunction(
             0 //TBD: IdModule
          ,  0 //TBD: IdInstance
          ,  0 //TBD: IdApi
-         ,  FLS_E_UNINIT
+         ,  MCALFLS_E_UNINIT
       );
 #endif
    }
 #endif
 }
 
-FUNC(void, FLS_CODE) module_McalFls::Erase(
+FUNC(void, MCALFLS_CODE) module_McalFls::Erase(
    void
 ){
 }
 
-FUNC(void, FLS_CODE) module_McalFls::Write(
+FUNC(void, MCALFLS_CODE) module_McalFls::Write(
    void
 ){
 }
 
-FUNC(void, FLS_CODE) module_McalFls::McalCancel(
+FUNC(void, MCALFLS_CODE) module_McalFls::McalCancel(
    void
 ){
 }
 
-FUNC(void, FLS_CODE) module_McalFls::GetStatus(
+FUNC(void, MCALFLS_CODE) module_McalFls::GetStatus(
    void
 ){
 }
 
-FUNC(void, FLS_CODE) module_McalFls::GetJobResult(
+FUNC(void, MCALFLS_CODE) module_McalFls::GetJobResult(
    void
 ){
 }
 
-FUNC(void, FLS_CODE) module_McalFls::Read(
+FUNC(void, MCALFLS_CODE) module_McalFls::Read(
    void
 ){
 }
 
-FUNC(void, FLS_CODE) module_McalFls::ServiceCompare(
+FUNC(void, MCALFLS_CODE) module_McalFls::ServiceCompare(
    void
 ){
 }
 
-FUNC(void, FLS_CODE) module_McalFls::SetMode(
+FUNC(void, MCALFLS_CODE) module_McalFls::SetMode(
    void
 ){
 }

@@ -1,36 +1,20 @@
 #pragma once
 /******************************************************************************/
-/* File   : McalFls_core.hpp                                                      */
+/* File   : McalFls.hpp                                                           */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CompilerCfg_McalFls.hpp"
+#include "ConstMcalFls.hpp"
+#include "CfgMcalFls.hpp"
+#include "McalFls_core.hpp"
+#include "infMcalFls_Exp.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define MCALFLS_CORE_FUNCTIONALITIES                                               \
-              FUNC(void, MCALFLS_CODE) Erase          (void);                      \
-              FUNC(void, MCALFLS_CODE) Write          (void);                      \
-              FUNC(void, MCALFLS_CODE) McalCancel         (void);                      \
-              FUNC(void, MCALFLS_CODE) GetStatus      (void);                      \
-              FUNC(void, MCALFLS_CODE) GetJobResult   (void);                      \
-              FUNC(void, MCALFLS_CODE) Read           (void);                      \
-              FUNC(void, MCALFLS_CODE) ServiceCompare        (void);                      \
-              FUNC(void, MCALFLS_CODE) SetMode        (void);                      \
-
-#define MCALFLS_CORE_FUNCTIONALITIES_VIRTUAL                                       \
-      virtual FUNC(void, MCALFLS_CODE) Erase          (void) = 0;                  \
-      virtual FUNC(void, MCALFLS_CODE) Write          (void) = 0;                  \
-      virtual FUNC(void, MCALFLS_CODE) McalCancel         (void) = 0;                  \
-      virtual FUNC(void, MCALFLS_CODE) GetStatus      (void) = 0;                  \
-      virtual FUNC(void, MCALFLS_CODE) GetJobResult   (void) = 0;                  \
-      virtual FUNC(void, MCALFLS_CODE) Read           (void) = 0;                  \
-      virtual FUNC(void, MCALFLS_CODE) ServiceCompare        (void) = 0;                  \
-      virtual FUNC(void, MCALFLS_CODE) SetMode        (void) = 0;                  \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -39,9 +23,28 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-class class_McalFls_Functionality{
+class module_McalFls:
+      INTERFACES_EXPORTED_FLS
+      public abstract_module
+   ,  public class_McalFls_Functionality
+{
+   private:
+/******************************************************************************/
+/* OBJECTS                                                                    */
+/******************************************************************************/
+      const ConstMcalFls_Type* lptrConst = (ConstMcalFls_Type*)NULL_PTR;
+
    public:
-      MCALFLS_CORE_FUNCTIONALITIES_VIRTUAL
+/******************************************************************************/
+/* FUNCTIONS                                                                  */
+/******************************************************************************/
+      FUNC(void, FLS_CODE) InitFunction(
+            CONSTP2CONST(ConstModule_TypeAbstract, FLS_CONST,       FLS_APPL_CONST) lptrConstModule
+         ,  CONSTP2CONST(CfgModule_TypeAbstract,   FLS_CONFIG_DATA, FLS_APPL_CONST) lptrCfgModule
+      );
+      FUNC(void, FLS_CODE) DeInitFunction (void);
+      FUNC(void, FLS_CODE) MainFunction   (void);
+      FLS_CORE_FUNCTIONALITIES
 };
 
 /******************************************************************************/
@@ -55,10 +58,7 @@ class class_McalFls_Functionality{
 /******************************************************************************/
 /* OBJECTS                                                                    */
 /******************************************************************************/
-
-/******************************************************************************/
-/* FUNCTIONS                                                                  */
-/******************************************************************************/
+extern VAR(module_McalFls, FLS_VAR) McalFls;
 
 /******************************************************************************/
 /* EOF                                                                        */

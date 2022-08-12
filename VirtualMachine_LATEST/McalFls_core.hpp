@@ -12,25 +12,25 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define FLS_CORE_FUNCTIONALITIES                                               \
-              FUNC(void, FLS_CODE) Erase          (void);                      \
-              FUNC(void, FLS_CODE) Write          (void);                      \
-              FUNC(void, FLS_CODE) McalCancel         (void);                      \
-              FUNC(void, FLS_CODE) GetStatus      (void);                      \
-              FUNC(void, FLS_CODE) GetJobResult   (void);                      \
-              FUNC(void, FLS_CODE) Read           (void);                      \
-              FUNC(void, FLS_CODE) ServiceCompare        (void);                      \
-              FUNC(void, FLS_CODE) SetMode        (void);                      \
+#define MCALFLS_CORE_FUNCTIONALITIES                                               \
+              FUNC(void, MCALFLS_CODE) Erase          (void);                      \
+              FUNC(void, MCALFLS_CODE) Write          (void);                      \
+              FUNC(void, MCALFLS_CODE) McalCancel         (void);                      \
+              FUNC(void, MCALFLS_CODE) GetStatus      (void);                      \
+              FUNC(void, MCALFLS_CODE) GetJobResult   (void);                      \
+              FUNC(void, MCALFLS_CODE) Read           (void);                      \
+              FUNC(void, MCALFLS_CODE) ServiceCompare        (void);                      \
+              FUNC(void, MCALFLS_CODE) SetMode        (void);                      \
 
-#define FLS_CORE_FUNCTIONALITIES_VIRTUAL                                       \
-      virtual FUNC(void, FLS_CODE) Erase          (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) Write          (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) McalCancel         (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) GetStatus      (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) GetJobResult   (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) Read           (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) ServiceCompare        (void) = 0;                  \
-      virtual FUNC(void, FLS_CODE) SetMode        (void) = 0;                  \
+#define MCALFLS_CORE_FUNCTIONALITIES_VIRTUAL                                       \
+      virtual FUNC(void, MCALFLS_CODE) Erase          (void) = 0;                  \
+      virtual FUNC(void, MCALFLS_CODE) Write          (void) = 0;                  \
+      virtual FUNC(void, MCALFLS_CODE) McalCancel         (void) = 0;                  \
+      virtual FUNC(void, MCALFLS_CODE) GetStatus      (void) = 0;                  \
+      virtual FUNC(void, MCALFLS_CODE) GetJobResult   (void) = 0;                  \
+      virtual FUNC(void, MCALFLS_CODE) Read           (void) = 0;                  \
+      virtual FUNC(void, MCALFLS_CODE) ServiceCompare        (void) = 0;                  \
+      virtual FUNC(void, MCALFLS_CODE) SetMode        (void) = 0;                  \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -41,7 +41,7 @@
 /******************************************************************************/
 class class_McalFls_Functionality{
    public:
-      FLS_CORE_FUNCTIONALITIES_VIRTUAL
+      MCALFLS_CORE_FUNCTIONALITIES_VIRTUAL
 };
 
 /******************************************************************************/

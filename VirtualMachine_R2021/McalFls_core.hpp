@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : infMcalFls_ServiceDet.hpp                                                    */
+/* File   : McalFls_core.hpp                                                      */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
@@ -12,6 +12,25 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
+#define FLS_CORE_FUNCTIONALITIES                                               \
+              FUNC(void, FLS_CODE) Erase          (void);                      \
+              FUNC(void, FLS_CODE) Write          (void);                      \
+              FUNC(void, FLS_CODE) McalCancel         (void);                      \
+              FUNC(void, FLS_CODE) GetStatus      (void);                      \
+              FUNC(void, FLS_CODE) GetJobResult   (void);                      \
+              FUNC(void, FLS_CODE) Read           (void);                      \
+              FUNC(void, FLS_CODE) ServiceCompare        (void);                      \
+              FUNC(void, FLS_CODE) SetMode        (void);                      \
+
+#define FLS_CORE_FUNCTIONALITIES_VIRTUAL                                       \
+      virtual FUNC(void, FLS_CODE) Erase          (void) = 0;                  \
+      virtual FUNC(void, FLS_CODE) Write          (void) = 0;                  \
+      virtual FUNC(void, FLS_CODE) McalCancel         (void) = 0;                  \
+      virtual FUNC(void, FLS_CODE) GetStatus      (void) = 0;                  \
+      virtual FUNC(void, FLS_CODE) GetJobResult   (void) = 0;                  \
+      virtual FUNC(void, FLS_CODE) Read           (void) = 0;                  \
+      virtual FUNC(void, FLS_CODE) ServiceCompare        (void) = 0;                  \
+      virtual FUNC(void, FLS_CODE) SetMode        (void) = 0;                  \
 
 /******************************************************************************/
 /* MACROS                                                                     */
@@ -20,9 +39,10 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
-typedef enum{
-      MCALFLS_E_UNINIT
-}McalFls_TypeServiceDetErrorCode;
+class class_McalFls_Functionality{
+   public:
+      FLS_CORE_FUNCTIONALITIES_VIRTUAL
+};
 
 /******************************************************************************/
 /* CONSTS                                                                     */
