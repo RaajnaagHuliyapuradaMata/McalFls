@@ -94,6 +94,7 @@ FUNC(void, MCALFLS_CODE) module_McalFls::InitFunction(
            ReSimFm McalFls;
            McalFls.Read(        au8Data);
            McalFls.Write(32768, au8Data);
+           McalFls.CsvReadOut();
 //      }
 #else
 #endif
