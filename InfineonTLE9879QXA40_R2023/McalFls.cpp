@@ -90,11 +90,6 @@ FUNC(void, MCALFLS_CODE) module_McalFls::InitFunction(
 //      }
 //      else{
          //TBD: Read from File -> CfgGen_McalFls
-           uint8 au8Data[32768];
-           ReSimFm McalFls;
-           McalFls.Read(        au8Data);
-           McalFls.Write(32768, au8Data);
-           McalFls.CsvReadOut();
 //      }
 #else
 #endif
