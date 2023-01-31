@@ -13,19 +13,10 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define MCALFLS_AR_RELEASE_VERSION_MAJOR                                       4
-#define MCALFLS_AR_RELEASE_VERSION_MINOR                                       3
 
 /******************************************************************************/
 /* MACROS                                                                     */
 /******************************************************************************/
-#if(MCALFLS_AR_RELEASE_VERSION_MAJOR != STD_AR_RELEASE_VERSION_MAJOR)
-   #error "Incompatible MCALFLS_AR_RELEASE_VERSION_MAJOR!"
-#endif
-
-#if(MCALFLS_AR_RELEASE_VERSION_MINOR != STD_AR_RELEASE_VERSION_MINOR)
-   #error "Incompatible MCALFLS_AR_RELEASE_VERSION_MINOR!"
-#endif
 
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
@@ -58,7 +49,7 @@ VAR(module_McalFls, MCALFLS_VAR) McalFls;
 #endif
 
 FUNC(void, MCALFLS_CODE) module_McalFls::InitFunction(
-      CONSTP2CONST(ConstModule_TypeAbstract, MCALFLS_CONST,       MCALFLS_APPL_CONST) lptrConstModule
+      CONSTP2CONST(ConstModule_TypeAbstract, MCALFLS_CONST,       MCALFLS_APPL_CONST) lptrNvMBlocksRomModule
    ,  CONSTP2CONST(CfgModule_TypeAbstract,   MCALFLS_CONFIG_DATA, MCALFLS_APPL_CONST) lptrCfgModule
 ){
 #if(STD_ON == McalFls_InitCheck)
@@ -68,10 +59,10 @@ FUNC(void, MCALFLS_CODE) module_McalFls::InitFunction(
    ){
 #endif
       if(
-            (NULL_PTR != lptrConstModule)
+            (NULL_PTR != lptrNvMBlocksRomModule)
          && (NULL_PTR != lptrCfgModule)
       ){
-         lptrConst = (const ConstMcalFls_Type*)lptrConstModule;
+         lptrNvMBlocksRom = lptrNvMBlocksRomModule;
          lptrCfg   = lptrCfgModule;
       }
       else{

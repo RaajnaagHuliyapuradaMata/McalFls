@@ -7,11 +7,8 @@
 /******************************************************************************/
 /* #DEFINES                                                                   */
 /******************************************************************************/
-#define CONSTMCALFLS_AR_RELEASE_VERSION_MAJOR                                  4
-#define CONSTMCALFLS_AR_RELEASE_VERSION_MINOR                                  3
-
-#define Const_DefaultInit_ConstMcalFls                                                                           \
-   ,  {CONSTMCALFLS_AR_RELEASE_VERSION_MAJOR, CONSTMCALFLS_AR_RELEASE_VERSION_MINOR, 0x00,0xFF,0x01,'0','1','0'} \
+#define NvM_InitBlocksRom_McalFls                                                                      \
+   ,  {MCALFLS_AR_RELEASE_VERSION_MAJOR, MCALFLS_AR_RELEASE_VERSION_MINOR, 0x00,0xFF,0x01,'0','1','0'} \
 
 /******************************************************************************/
 /* EOF                                                                        */
