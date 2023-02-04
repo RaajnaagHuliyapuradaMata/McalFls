@@ -77,10 +77,10 @@ FUNC(void, MCALFLS_CODE) module_McalFls::InitFunction(
       }
 #if(STD_ON == _ReSIM)
 //      if(FALSE){
-         //TBD: Read from Flash -> CfgGen_McalFls
+         //TBD: Read from Flash -> Fls_Blocks
 //      }
 //      else{
-         //TBD: Read from File -> CfgGen_McalFls
+         //TBD: Read from File -> Fls_Blocks
 //      }
 #else
 #endif
