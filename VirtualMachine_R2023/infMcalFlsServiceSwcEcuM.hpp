@@ -1,6 +1,6 @@
 #pragma once
 /******************************************************************************/
-/* File   : infMcalFls_ServiceSwcEcuM.hpp                                     */
+/* File   : infMcalFlsServiceSwcEcuM.hpp                                      */
 /* Author : NAGARAJA HM (c) since 1982. All rights reserved.                  */
 /******************************************************************************/
 
@@ -24,8 +24,8 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern FUNC(void, MCALFLS_CODE) McalFls_InitFunction   (void);
-extern FUNC(void, MCALFLS_CODE) McalFls_DeInitFunction (void);
+extern FUNC(void, MCALFLS_CODE) infMcalFlsServiceSwcEcuM_InitFunction   (void);
+extern FUNC(void, MCALFLS_CODE) infMcalFlsServiceSwcEcuM_DeInitFunction (void);
 
 /******************************************************************************/
 /* CONSTS                                                                     */
