@@ -10,7 +10,7 @@
 
 #include "McalFls.hpp"
 
-#include "infMcalFlsServiceSwcEcuM.hpp"
+#include "infMcalFlsSwcServiceEcuM.hpp"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -39,9 +39,9 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-FUNC(void, MCALFLS_CODE) infMcalFlsServiceSwcEcuM_InitFunction   (void){}
-FUNC(void, MCALFLS_CODE) infMcalFlsServiceSwcEcuM_DeInitFunction (void){}
-FUNC(void, MCALFLS_CODE) infMcalFlsServiceSwcSchM_MainFunction   (void){}
+FUNC(void, MCALFLS_CODE) infMcalFlsSwcServiceEcuM_InitFunction   (void){}
+FUNC(void, MCALFLS_CODE) infMcalFlsSwcServiceEcuM_DeInitFunction (void){}
+FUNC(void, MCALFLS_CODE) infMcalFlsSwcServiceSchM_MainFunction   (void){}
 
 /******************************************************************************/
 /* EOF                                                                        */
