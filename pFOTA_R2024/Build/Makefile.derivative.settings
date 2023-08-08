@@ -1,0 +1,1122 @@
+#######################################################################################################################
+# File Name  : Makefile.derivative.settings                                                                           #
+# Description: Memory size definition for each supported derivative                                                   #
+# Project    : Vector Basic Runtime System                                                                            #
+# Module     : BrsHw for platform Renesas RH850                                                                       #
+#                                                                                                                     #
+#---------------------------------------------------------------------------------------------------------------------#
+# COPYRIGHT                                                                                                           #
+#---------------------------------------------------------------------------------------------------------------------#
+# Copyright (c) 2019 by Vector Informatik GmbH.                                                  All rights reserved. #
+#                                                                                                                     #
+#---------------------------------------------------------------------------------------------------------------------#
+# AUTHOR IDENTITY                                                                                                     #
+#---------------------------------------------------------------------------------------------------------------------#
+# Name                          Initials      Company                                                                 #
+# ----------------------------  ------------  ------------------------------------------------------------------------#
+# Benjamin Walter               visbwa        Vector Informatik GmbH                                                  #
+# Timo Müller                   vistir        Vector Informatik GmbH                                                  #
+# Stefan Schorer                vissns        Vector Informatik GmbH                                                  #
+# Derick Beng Yuh               visydg        Vector Informatik GmbH                                                  #
+# Nguyen Le                     vislnn        Vector Informatik GmbH                                                  #
+# Viet Duc Nguyen               visvnn        Vector Informatik GmbH                                                  #
+# Michael Kock                  vismkk        Vector Informatik GmbH                                                  #
+# Steffen Frank                 visfsn        Vector Informatik GmbH                                                  #
+# Amelie Gebhardt               visage        Vector Informatik GmbH                                                  #
+# Jens Haerer                   visjhr        Vector Informatik GmbH                                                  #
+# Michael Tiran                 vismin        Vector Informatik GmbH                                                  #
+# Bjoern Eisenkrammer           visebj        Vector Informatik GmbH                                                  #
+# Wolfgang Lienhart             viswlt        Vector Informatik GmbH                                                  #
+# Anja Unnasch                  visuna        Vector Informatik GmbH                                                  #
+# Paul Buchmueller              visbpl        Vector Informatik GmbH                                                  #
+# Nika Hamidi                   visnhi        Vector Informatik GmbH                                                  #
+# Johannes Kempf                viskj         Vector Informatik GmbH                                                  #
+# Wamba Cyrille                 viswca        Vector Informatik GmbH                                                  #
+# Manuel Rettig                 visrgm        Vector Informatik GmbH                                                  #
+# Sascha Mauser                 vismaa        Vector Informatik GmbH                                                  #
+# Sherif Elsabbahy              vissey        Vector Informatik GmbH                                                  #
+# Fabio Campaniello             vitmfco       Vector Italia s.r.l                                                     #
+# Ivo Georgiev                  visivg        Vector Informatik GmbH                                                  #
+# Thomas Wiesgickl              virtwl        Vector Informatik GmbH                                                  #
+# Francois Berjonneau           vfpfsb        Vector France SAS                                                       #
+# Muhammad Suliman              vismun        Vector Informatik GmbH                                                  #
+# Andreas Kuehefuss             visakf        Vector Informatik GmbH                                                  #
+#---------------------------------------------------------------------------------------------------------------------#
+# REVISION HISTORY                                                                                                    #
+#---------------------------------------------------------------------------------------------------------------------#
+# Version   Date        Author  Description                                                                           #
+# --------  ----------  ------  --------------------------------------------------------------------------------------#
+# 01.00.00  2014-07-08  visbwa  Initial version                                                                       #
+# 01.00.01  2014-09-30  vistir  Added D1L derivatives                                                                 #
+# 01.00.02  2015-01-09  visbwa  fixed Ram start address of P1M (WS1+WS2 support)                                      #
+# 01.00.03  2015-01-19  vistir  Added F1M                                                                             #
+# 01.00.04  2015-01-21  vistir  Added P1H                                                                             #
+# 01.00.05  2015-03-23  visbwa  Added 701406                                                                          #
+# 01.00.06  2015-04-15  vissns  Added 701013                                                                          #
+# 01.00.07  2015-04-16  vissns  Added 701019                                                                          #
+# 01.00.08  2015-05-08  visydg  Added 701020                                                                          #
+# 01.00.09  2015-08-18  vislnn  Added 701522, 701023,701030,701310                                                    #
+# 01.00.10  2015-08-26  vislnn  Added 701562, 701014                                                                  #
+# 01.00.11  2015-09-15  visvnn  Added 701552                                                                          #
+# 01.00.12  2015-10-21  visvnn  Added 701311                                                                          #
+# 01.00.13  2015-10-22  visvnn  Added 701Z11                                                                          #
+# 01.00.14  2015-11-02  visbwa  Added 701402                                                                          #
+# 01.00.15  2015-11-03  vismkk  Added 701029                                                                          #
+# 01.00.16  2015-11-04  visvnn  Added 701Z12                                                                          #
+# 01.00.17  2015-11-05  visbwa  Added 701428                                                                          #
+# 01.00.18  2015-11-06  visvnn  Added 701045                                                                          #
+# 01.00.19  2015-11-16  visvnn  Added 701507                                                                          #
+# 01.00.20  2015-11-20  visvnn  Added 701372                                                                          #
+# 01.00.21  2015-12-01  visfsn  Added and fixed support for several D1x                                               #
+# 01.00.22  2015-12-09  visvnn  Added 701012                                                                          #
+# 01.00.23  2015-12-09  visage  Added 701025                                                                          #
+# 01.00.24  2016-01-12  visage  Added 701565, 701564, 701545, 701544                                                  #
+# 01.00.25  2016-02-02  visjhr  Added 701587 (F1K Premium), fixed F1K CPU switch                                      #
+# 01.00.26  2016-02-18  vismin  Added 701049                                                                          #
+# 01.00.27  2016-03-30  visebj  Added 701548, 701527                                                                  #
+# 01.00.28  2016-04-04  viswlt  Added 701010                                                                          #
+# 01.00.29  2016-04-08  visuna  Added 701053                                                                          #
+# 01.00.30  2016-05-11  visbwa  Added 701054                                                                          #
+# 01.00.31  2016-05-17  visbpl  Added 701568                                                                          #
+# 01.00.32  2016-06-03  viswlt  Added 701530, 701531                                                                  #
+# 01.00.33  2016-06-27  visnhi  Added 701318, 701623, 701502, fixed RAM partitions for F1H Family                     #
+# 01.01.00  2016-06-29  viskj   Adaptions for support of RAM initialization ('k' after ram/rom-size)                  #
+# 01.02.00  2016-06-30  visbwa  Changed header information according to Brs_Template 2.00.01                          #
+# 01.03.00  2016-07-27  visnhi  Added MultiCore support for F1H family, renamed RAM_SIZE_* into GLOBAL_RAM_SIZE_*     #
+# 01.03.01  2016-08-26  visuna  Added support for 701044                                                              #
+# 01.03.02  2016-09-23  viswca  Added support for 701582                                                              #
+# 01.03.03  2016-10-07  visrgm  Added support for 701583                                                              #
+# 01.03.04  2016-10-28  vismaa  Added support for 701620                                                              #
+# 01.03.05  2016-11-21  visbwa  Added support for 701400 and 701401                                                   #
+# 01.03.06  2016-11-22  visbwa  Added support for 701327                                                              #
+# 01.03.07  2017-01-18  vismaa  Added support for 701015,701378 and 701567                                            #
+# 01.03.08  2017-02-20  visbwa  Added support for 701373                                                              #
+# 01.03.09  2017-02-27  visbwa  Added support for 701461 (successor of 701406), added hint for F1K and older compilers#
+# 01.03.10  2017-03-03  vissey  Added support for 701057                                                              #
+# 01.03.11  2017-03-22  vitmfco Added support for 701043                                                              #
+# 01.03.12  2017-04-06  visivg  Added support for 701602                                                              #
+# 01.03.13  2017-04-10  visivg  Added support for 701581                                                              #
+# 01.03.14  2017-04-20  visivg  Added support for 701320 and 701364                                                   #
+# 01.03.15  2017-05-21  viswlt  Added support for 701026, 701027, 701028                                              #
+# 01.03.16  2017-04-27  virtwl  Added support for 701022                                                              #
+# 01.03.17  2017-05-05  vismaa  Added support for 701621                                                              #
+# 01.03.18  2017-05-15  visivg  Added support for 701649                                                              #
+# 01.03.19  2017-05-22  visbwa  Fixed LOCAL_RAM_SIZE_CORE1_701527 (128kB according to R01UH0445EJ0110 Rev.1.10)       #
+# 01.03.20  2017-06-07  vishan  Added support for 701534                                                              #
+# 01.03.21  2017-07-14  vismin  Added support for 701024                                                              #
+# 01.03.22  2017-07-17  vismin  Added support for 701686                                                              #
+# 01.03.23  2017-08-10  vismin  Added support for 701441 and 701461                                                   #
+# 01.03.24  2017-08-14  vismin  Added support for 701064                                                              #
+# 01.03.25  2017-08-22  visrgm  Added support for 701018                                                              #
+# 01.03.26  2017-09-25  vismaa  Added support for 701006                                                              #
+# 01.03.27  2017-09-26  vismaa  Added support for 701276                                                              #
+# 01.03.28  2017-10-18  vfpfsb  Added support for 701270 and 701383,                                                  #
+#                               reworked support for 701686 (new group F1KM-S1) and 701649 (new group F1KM-S4),       #
+#                               added several comments to F1KM, F1KM-S4 and F1KM-S1 families to explain usage of      #
+#                               Retention RAM as RAM extension and the mirrored self area                             #
+# 01.03.29  2017-10-19  visbwa  Added support for 701003                                                              #
+# 01.03.30  2017-10-20  vfpfsb  Fixed setting for 701260 and 701260 since RAM section definition changed              #
+# 01.03.31  2017-10-24  vfpfsb  Added support for 701381                                                              #
+# 01.03.32  2017-12-05  vismaa  Added support for 701689 (F1KM-S1)                                                    #
+# 01.03.33  2018-01-03  visbwa  Added support for 701216 (E1M)                                                        #
+# 01.03.34  2018-01-05  visbwa  Changed from global RAM to local RAM (PE1) for E1L derivatives (solve debug problem)  #
+# 01.03.35  2018-01-08  vismaa  Fix memory for 701530 and 701531 (F1H), fix code flash for 701276 (C1M_AZ)            #
+# 01.03.36  2018-01-08  vismaa  Fix memory for 701325, 701327 and 701372 (P1H) for proper MultiCore support           #
+# 01.03.37  2018-01-08  vismaa  Added support for 701371 (P1H)                                                        #
+# 01.03.38  2018-01-09  vismun  Added 701638 and 701692 (F1KM-Sx)                                                     #
+# 01.00.39  2018-01-29  vismaa  Added support for 701580 (F1K)                                                        #
+# 01.03.40  2018-02-14  vismun  Added 701709 (F1KH-D8) and 701647 (F1KM-S4), fixed 701325                             #
+# 01.03.41  2018-05-14  virtwl  Added support of GlobalRAM for F1KM_S4                                                #
+#                       visbwa  Fixed RAM mappings of F1KM_S4 derivatives (according to R01UH0684EJ0091)              #
+# 01.03.42  2018-07-12  visbwa  Added support for 701529                                                              #
+# 01.03.43  2018-08-22  visbwa  Removed duplicated 701461                                                             #
+# 01.03.44  2018-11-14  vismaa  Added derivative 701708 and 701711 F1KH-D8 (theoretical)                              #
+# 01.03.45  2018-12-19  vismaa  Added derivative 701684 F1KM_S1 (theoretical)                                         #
+# 01.03.46  2018-12-21  vismaa  Added derivative 701577 F1K (theoretical)                                             #
+# 01.03.47  2019-01-07  vismaa  Added derivative 701416 D1S (theoretical)                                             #
+# 01.03.48  2019-03-11  vismaa  Added derivative 701442 and 701462 D1M1_V2 (theoretical)                              #
+# 01.03.49  2019-03-12  visafk  Added derivative 701391 P1L_C (theoretical)                                           #
+#######################################################################################################################
+
+#------------------------------------------------------------------------------
+# define ROM/RAM area
+#------------------------------------------------------------------------------
+
+ifeq ($(DERIVATIVE),)
+ $(error "Please define DERIVATIVE in Makefile.Config")
+endif
+
+################################################################################
+####  F1L Derivatives                                                       ####
+################################################################################
+F1L_RAM_START_ADDRESS_128 = 0xFEDE0000
+F1L_RAM_START_ADDRESS_96  = 0xFEDE8000
+F1L_RAM_START_ADDRESS_64  = 0xFEDF0000
+F1L_RAM_START_ADDRESS_32  = 0xFEDF8000
+F1L_RAM_START_ADDRESS_16  = 0xFEDFC000
+
+GHS_CPU_SWITCH_F1L     = rh850g3k
+RENESAS_CPU_SWITCH_F1L = g3k
+
+####  R7F701003X  ####
+DERIVATIVE_GROUP_701003 = F1L
+CODEFLASH_SIZE_701003   = 1024
+GLOBAL_RAM_SIZE_701003  = 96
+
+####  R7F701006X  ####
+DERIVATIVE_GROUP_701006 = F1L
+CODEFLASH_SIZE_701006   = 2048
+GLOBAL_RAM_SIZE_701006  = 128
+
+####  R7F701010X  ####
+DERIVATIVE_GROUP_701010 = F1L
+CODEFLASH_SIZE_701010   = 512
+GLOBAL_RAM_SIZE_701010  = 32
+
+####  R7F701012X  ####
+DERIVATIVE_GROUP_701012 = F1L
+CODEFLASH_SIZE_701012   = 384
+GLOBAL_RAM_SIZE_701012  = 32
+
+####  R7F701013X  ####
+DERIVATIVE_GROUP_701013 = F1L
+CODEFLASH_SIZE_701013   = 512
+GLOBAL_RAM_SIZE_701013  = 32
+
+####  R7F701014X  ####
+DERIVATIVE_GROUP_701014 = F1L
+CODEFLASH_SIZE_701014   = 768
+GLOBAL_RAM_SIZE_701014  = 64
+
+####  R7F701015X  ####
+DERIVATIVE_GROUP_701015 = F1L
+CODEFLASH_SIZE_701015   = 1024
+GLOBAL_RAM_SIZE_701015  = 96
+
+####  R7F701018X  ####
+DERIVATIVE_GROUP_701018 = F1L
+CODEFLASH_SIZE_701018   = 512
+GLOBAL_RAM_SIZE_701018  = 32
+
+####  R7F701019X  ####
+DERIVATIVE_GROUP_701019 = F1L
+CODEFLASH_SIZE_701019   = 768
+GLOBAL_RAM_SIZE_701019  = 64
+
+####  R7F701020X  ####
+DERIVATIVE_GROUP_701020 = F1L
+CODEFLASH_SIZE_701020   = 1024
+GLOBAL_RAM_SIZE_701020  = 96
+
+####  R7F701022X  ####
+DERIVATIVE_GROUP_701022 = F1L
+CODEFLASH_SIZE_701022   = 384
+GLOBAL_RAM_SIZE_701022  = 16
+
+####  R7F701023X  ####
+DERIVATIVE_GROUP_701023 = F1L
+CODEFLASH_SIZE_701023   = 512
+GLOBAL_RAM_SIZE_701023  = 32
+
+####  R7F701024X  ####
+DERIVATIVE_GROUP_701024 = F1L
+CODEFLASH_SIZE_701024   = 768
+GLOBAL_RAM_SIZE_701024  = 64
+
+####  R7F701025X  ####
+DERIVATIVE_GROUP_701025 = F1L
+CODEFLASH_SIZE_701025   = 1024
+GLOBAL_RAM_SIZE_701025  = 96
+
+####  R7F701026X  ####
+DERIVATIVE_GROUP_701026 = F1L
+CODEFLASH_SIZE_701026   = 384
+GLOBAL_RAM_SIZE_701026  = 16
+
+####  R7F701027X  ####
+DERIVATIVE_GROUP_701027 = F1L
+CODEFLASH_SIZE_701027   = 512
+GLOBAL_RAM_SIZE_701027  = 32
+
+####  R7F701028X  ####
+DERIVATIVE_GROUP_701028 = F1L
+CODEFLASH_SIZE_701028   = 768
+GLOBAL_RAM_SIZE_701028  = 64
+
+####  R7F701029X  ####
+DERIVATIVE_GROUP_701029 = F1L
+CODEFLASH_SIZE_701029   = 1024
+GLOBAL_RAM_SIZE_701029  = 96
+
+####  R7F701030X  ####
+DERIVATIVE_GROUP_701030 = F1L
+CODEFLASH_SIZE_701030   = 1536
+GLOBAL_RAM_SIZE_701030  = 128
+
+####  R7F701031X  ####
+DERIVATIVE_GROUP_701031 = F1L
+CODEFLASH_SIZE_701031   = 2048
+GLOBAL_RAM_SIZE_701031  = 128
+
+####  R7F701035X  ####
+DERIVATIVE_GROUP_701035 = F1L
+CODEFLASH_SIZE_701035   = 2048
+GLOBAL_RAM_SIZE_701035  = 128
+
+####  R7F701044X  ####
+DERIVATIVE_GROUP_701044 = F1L
+CODEFLASH_SIZE_701044   = 768
+GLOBAL_RAM_SIZE_701044  = 64
+
+####  R7F701045X  ####
+DERIVATIVE_GROUP_701045 = F1L
+CODEFLASH_SIZE_701045   = 1024
+GLOBAL_RAM_SIZE_701045  = 96
+
+####  R7F701049X  ####
+DERIVATIVE_GROUP_701049 = F1L
+CODEFLASH_SIZE_701049   = 2048
+GLOBAL_RAM_SIZE_701049  = 128
+
+####  R7F701053X  ####
+DERIVATIVE_GROUP_701053 = F1L
+CODEFLASH_SIZE_701053   = 2048
+GLOBAL_RAM_SIZE_701053  = 128
+
+####  R7F701054X  ####
+DERIVATIVE_GROUP_701054 = F1L
+CODEFLASH_SIZE_701054   = 1536
+GLOBAL_RAM_SIZE_701054  = 128
+
+####  R7F701057X  ####
+DERIVATIVE_GROUP_701057 = F1L
+CODEFLASH_SIZE_701057   = 2048
+GLOBAL_RAM_SIZE_701057  = 128
+
+####  R7F701043X  ####
+DERIVATIVE_GROUP_701043 = F1L
+CODEFLASH_SIZE_701043   = 1024
+GLOBAL_RAM_SIZE_701043  = 96
+
+################################################################################
+####  F1M Derivatives                                                       ####
+################################################################################
+F1M_RAM_START_ADDRESS_256 = 0xFEBC0000
+F1M_RAM_START_ADDRESS_192 = 0xFEBD0000
+F1M_RAM_START_ADDRESS_64  = 0xFEF00000
+
+GHS_CPU_SWITCH_F1M     = rh850g3m
+RENESAS_CPU_SWITCH_F1M = g3m
+
+####  R7F701544X  ####
+DERIVATIVE_GROUP_701544 = F1M
+CODEFLASH_SIZE_701544   = 3072
+GLOBAL_RAM_SIZE_701544  = 192
+
+####  R7F701545X  ####
+DERIVATIVE_GROUP_701545 = F1M
+CODEFLASH_SIZE_701545   = 4096
+GLOBAL_RAM_SIZE_701545  = 256
+
+####  R7F701548X  ####
+DERIVATIVE_GROUP_701548 = F1M
+CODEFLASH_SIZE_701548   = 3072
+GLOBAL_RAM_SIZE_701548  = 192
+
+####  R7F701568X  ####
+DERIVATIVE_GROUP_701568 = F1M
+CODEFLASH_SIZE_701568   = 3072
+GLOBAL_RAM_SIZE_701568  = 192
+
+####  R7F701549X  ####
+DERIVATIVE_GROUP_701549 = F1M
+CODEFLASH_SIZE_701549   = 4096
+GLOBAL_RAM_SIZE_701549  = 256
+
+####  R7F701552X  ####
+DERIVATIVE_GROUP_701552 = F1M
+CODEFLASH_SIZE_701552   = 3072
+GLOBAL_RAM_SIZE_701552  = 192
+
+####  R7F701564X  ####
+DERIVATIVE_GROUP_701564 = F1M
+CODEFLASH_SIZE_701564   = 3072
+GLOBAL_RAM_SIZE_701564  = 192
+
+####  R7F701565X  ####
+DERIVATIVE_GROUP_701565 = F1M
+CODEFLASH_SIZE_701565   = 4096
+GLOBAL_RAM_SIZE_701565  = 256
+
+####  R7F701569X  ####
+DERIVATIVE_GROUP_701569 = F1M
+CODEFLASH_SIZE_701569   = 4096
+GLOBAL_RAM_SIZE_701569  = 256
+
+################################################################################
+####  F1H Derivatives                                                       ####
+################################################################################
+#F1H_RAM_START_ADDRESS_112 = 0xFEBE4000
+#F1H_RAM_START_ADDRESS_128 = 0xFEBE0000
+#F1H_RAM_START_ADDRESS_192 = 0xFEBD0000
+#F1H_RAM_START_ADDRESS_256 = 0xFEBC0000
+# Global Ram Size is Half of the size of real Global RAM as it is shared between two Cores (Visnhi)
+
+F1H_LOCAL_RAM_START_ADDRESS_CORE0_112  = 0xFEBE4000
+F1H_LOCAL_RAM_START_ADDRESS_CORE1_112  = 0xFE9E4000
+F1H_LOCAL_RAM_START_ADDRESS_CORE0_128  = 0xFEBE0000
+F1H_LOCAL_RAM_START_ADDRESS_CORE1_128  = 0xFE9E0000
+F1H_LOCAL_RAM_START_ADDRESS_CORE0_256  = 0xFEBC0000
+F1H_LOCAL_RAM_START_ADDRESS_CORE1_256  = 0xFE9C0000
+F1H_LOCAL_RAM_START_ADDRESS_CORE0_192  = 0xFEBD0000
+F1H_LOCAL_RAM_START_ADDRESS_CORE1_192  = 0xFE9D0000
+F1H_GLOBAL_RAM_BANK_A_START_ADDRESS_16 = 0xFEEFC000
+F1H_GLOBAL_RAM_BANK_B_START_ADDRESS_16 = 0xFEFFC000
+F1H_GLOBAL_RAM_BANK_A_START_ADDRESS_32 = 0xFEEF8000
+F1H_GLOBAL_RAM_BANK_B_START_ADDRESS_32 = 0xFEFF8000
+F1H_GLOBAL_RAM_BANK_A_START_ADDRESS_48 = 0xFEEF4000
+F1H_GLOBAL_RAM_BANK_B_START_ADDRESS_48 = 0xFEFF4000
+F1H_GLOBAL_RAM_BANK_A_START_ADDRESS_64 = 0xFEEF0000
+F1H_GLOBAL_RAM_BANK_B_START_ADDRESS_64 = 0xFEFF0000
+
+GHS_CPU_SWITCH_F1H     = rh850g3m
+RENESAS_CPU_SWITCH_F1H = g3m
+
+####  R7F701501X  ####
+DERIVATIVE_GROUP_701501       = F1H
+CODEFLASH_SIZE_BANKA_701501   = 1536
+CODEFLASH_SIZE_BANKB_701501   = 1536
+LOCAL_RAM_SIZE_CORE0_701501   = 112
+LOCAL_RAM_SIZE_CORE1_701501   = 112
+GLOBAL_RAM_SIZE_BANKA_701501  = 16
+GLOBAL_RAM_SIZE_BANKB_701501  = 16
+
+####  R7F701502X  ####
+DERIVATIVE_GROUP_701502       = F1H
+CODEFLASH_SIZE_BANKA_701502   = 2048
+CODEFLASH_SIZE_BANKB_701502   = 2048
+LOCAL_RAM_SIZE_CORE0_701502   = 128
+LOCAL_RAM_SIZE_CORE1_701502   = 128
+GLOBAL_RAM_SIZE_BANKA_701502  = 32
+GLOBAL_RAM_SIZE_BANKB_701502  = 32
+
+####  R7F701503X  ####
+DERIVATIVE_GROUP_701503       = F1H
+CODEFLASH_SIZE_BANKA_701503   = 4096
+CODEFLASH_SIZE_BANKB_701503   = 2048
+LOCAL_RAM_SIZE_CORE0_701503   = 192
+LOCAL_RAM_SIZE_CORE1_701503   = 192
+GLOBAL_RAM_SIZE_BANKA_701503  = 32
+GLOBAL_RAM_SIZE_BANKB_701503  = 32
+
+####  R7F701534X  ####
+DERIVATIVE_GROUP_701534       = F1H
+CODEFLASH_SIZE_BANKA_701534   = 4096
+CODEFLASH_SIZE_BANKB_701534   = 2048
+LOCAL_RAM_SIZE_CORE0_701534   = 256
+LOCAL_RAM_SIZE_CORE1_701534   = 256
+GLOBAL_RAM_SIZE_BANKA_701534  = 64
+GLOBAL_RAM_SIZE_BANKB_701534  = 64
+
+####  R7F701522X  ####
+DERIVATIVE_GROUP_701522       = F1H
+CODEFLASH_SIZE_BANKA_701522   = 2048
+CODEFLASH_SIZE_BANKB_701522   = 2048
+LOCAL_RAM_SIZE_CORE0_701522   = 256
+LOCAL_RAM_SIZE_CORE1_701522   = 256
+GLOBAL_RAM_SIZE_BANKA_701522  = 48
+GLOBAL_RAM_SIZE_BANKB_701522  = 48
+
+####  R7F701507X  ####
+DERIVATIVE_GROUP_701507       = F1H
+CODEFLASH_SIZE_BANKA_701507   = 2048
+CODEFLASH_SIZE_BANKB_701507   = 2048
+LOCAL_RAM_SIZE_CORE0_701507   = 128
+LOCAL_RAM_SIZE_CORE1_701507   = 128
+GLOBAL_RAM_SIZE_BANKA_701507  = 32
+GLOBAL_RAM_SIZE_BANKB_701507  = 32
+
+####  R7F701527X  ####
+DERIVATIVE_GROUP_701527       = F1H
+CODEFLASH_SIZE_BANKA_701527   = 2048
+CODEFLASH_SIZE_BANKB_701527   = 2048
+LOCAL_RAM_SIZE_CORE0_701527   = 128
+LOCAL_RAM_SIZE_CORE1_701527   = 128
+GLOBAL_RAM_SIZE_BANKA_701527  = 32
+GLOBAL_RAM_SIZE_BANKB_701527  = 32
+
+####  R7F701529X  ####
+DERIVATIVE_GROUP_701529       = F1H
+CODEFLASH_SIZE_BANKA_701529   = 2048
+CODEFLASH_SIZE_BANKB_701529   = 2048
+LOCAL_RAM_SIZE_CORE0_701529   = 256
+LOCAL_RAM_SIZE_CORE1_701529   = 128
+GLOBAL_RAM_SIZE_BANKA_701529  = 32
+GLOBAL_RAM_SIZE_BANKB_701529  = 32
+
+####  R7F701530X  ####
+DERIVATIVE_GROUP_701530       = F1H
+CODEFLASH_SIZE_BANKA_701530   = 1536
+CODEFLASH_SIZE_BANKB_701530   = 1536
+LOCAL_RAM_SIZE_CORE0_701530   = 256
+LOCAL_RAM_SIZE_CORE1_701530   = 128
+GLOBAL_RAM_SIZE_BANKA_701530  = 32
+GLOBAL_RAM_SIZE_BANKB_701530  = 32
+
+####  R7F701531X  ####
+DERIVATIVE_GROUP_701531       = F1H
+CODEFLASH_SIZE_BANKA_701531   = 2048
+CODEFLASH_SIZE_BANKB_701531   = 2048
+LOCAL_RAM_SIZE_CORE0_701531   = 256
+LOCAL_RAM_SIZE_CORE1_701531   = 128
+GLOBAL_RAM_SIZE_BANKA_701531  = 32
+GLOBAL_RAM_SIZE_BANKB_701531  = 32
+
+################################################################################
+####  F1K Derivatives                                                       ####
+################################################################################
+# The Local RAM can be accessed through 2 different addresses:
+# CPU area (default, access from DMA possible)
+# or Self area (access from DMA prohibited)
+#
+# Alternative addresses within self area (mirrored from CPU area):
+# F1K_RAM_START_ADDRESS_32  = 0xFEDE8000
+# F1K_RAM_START_ADDRESS_64  = 0xFEDE0000
+# F1K_RAM_START_ADDRESS_96  = 0xFEDD8000
+# F1K_RAM_START_ADDRESS_128 = 0xFEDD0000
+#
+# You could used Retention RAM (64KB) as extention of Local RAM
+# For the self area access :
+# 32kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_96  = 0xFEDE8000
+# 64kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_128  = 0xFEDE0000
+# 96kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_160  = 0xFEDD8000
+# 128kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_192 = 0xFEDD0000
+#
+# For CPU area access :
+# 32kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_96  = 0xFEBE8000
+# 32kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_64  = 0xFEBE0000
+# 32kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_96  = 0xFEBD8000
+# 32kb local + 64 kb Retention
+# F1K_RAM_START_ADDRESS_128 = 0xFEBD0000
+
+F1K_RAM_START_ADDRESS_32  = 0xFEBE8000
+F1K_RAM_START_ADDRESS_64  = 0xFEBE0000
+F1K_RAM_START_ADDRESS_96  = 0xFEBD8000
+F1K_RAM_START_ADDRESS_128 = 0xFEBD0000
+
+# older Compiler versions (e.g GHS 2013.5.5) do not support g3kh Core directly.
+# choose the option rh850g3k instead. E.g. GHS 2015.1.7 is supporting g3kh.
+#GHS_CPU_SWITCH_F1K     = rh850g3k
+GHS_CPU_SWITCH_F1K     = rh850g3kh
+RENESAS_CPU_SWITCH_F1K = g3kh
+
+####  R7F701562X  ####
+DERIVATIVE_GROUP_701562 = F1K
+CODEFLASH_SIZE_701562   = 1536
+GLOBAL_RAM_SIZE_701562  = 96
+
+####  R7F701567X  ####
+DERIVATIVE_GROUP_701567 = F1K
+CODEFLASH_SIZE_701567   = 2048
+GLOBAL_RAM_SIZE_701567  = 128
+
+####  R7F701577X  ####
+DERIVATIVE_GROUP_701577 = F1K
+CODEFLASH_SIZE_701577   = 1024
+GLOBAL_RAM_SIZE_701577  = 64
+
+####  R7F701580X  ####
+DERIVATIVE_GROUP_701580 = F1K
+CODEFLASH_SIZE_701580   = 1536
+GLOBAL_RAM_SIZE_701580  = 96
+
+####  R7F701581X  ####
+DERIVATIVE_GROUP_701581 = F1K
+CODEFLASH_SIZE_701581   = 2048
+GLOBAL_RAM_SIZE_701581  = 128
+
+####  R7F701582X  ####
+DERIVATIVE_GROUP_701582 = F1K
+CODEFLASH_SIZE_701582   = 1536
+GLOBAL_RAM_SIZE_701582  = 96
+
+####  R7F701583X  ####
+DERIVATIVE_GROUP_701583 = F1K
+CODEFLASH_SIZE_701583   = 2048
+GLOBAL_RAM_SIZE_701583  = 128
+
+####  R7F701587X  ####
+DERIVATIVE_GROUP_701587 = F1K
+CODEFLASH_SIZE_701587   = 2048
+GLOBAL_RAM_SIZE_701587  = 128
+
+####  R7F701602X  ####
+DERIVATIVE_GROUP_701602 = F1K
+CODEFLASH_SIZE_701602   = 768
+GLOBAL_RAM_SIZE_701602  = 32
+
+####  R7F701620X  ####
+DERIVATIVE_GROUP_701620 = F1K
+CODEFLASH_SIZE_701620   = 768
+GLOBAL_RAM_SIZE_701620  = 32
+
+####  R7F701621X  ####
+DERIVATIVE_GROUP_701621 = F1K
+CODEFLASH_SIZE_701621   = 1024
+GLOBAL_RAM_SIZE_701621  = 64
+
+####  R7F701623X  ####
+DERIVATIVE_GROUP_701623 = F1K
+CODEFLASH_SIZE_701623   = 1024
+GLOBAL_RAM_SIZE_701623  = 64
+
+################################################################################
+####  F1KM-S1 Derivatives                                                   ####
+################################################################################
+# The Local RAM can be accessed through 2 different addresses:
+# CPU area (default, access from DMA possible)
+# or Self area (access from DMA prohibited)
+#
+# Alternative addresses within self area (mirrored from CPU area):
+# F1KM_S1_RAM_START_ADDRESS_32  = 0xFEDF0000
+#
+# You could used Retention RAM (64KB) as extention of Local RAM
+# For the self area access :
+# 32kb local + 32 kb Retention
+# F1K_RAM_START_ADDRESS_64  = 0xFEDF0000
+#
+# For CPU area access :
+# 32kb local + 32 kb Retention
+# F1K_RAM_START_ADDRESS_64  = 0xFEBF0000
+
+F1KM_S1_RAM_START_ADDRESS_32  = 0xFEBF0000
+F1KM_S1_RAM_START_ADDRESS_96  = 0xFEBE0000
+
+# older Compiler versions (e.g GHS 2013.5.5) do not support g3kh Core directly.
+# choose the option rh850g3k instead. E.g. GHS 2015.1.7 is supporting g3kh.
+#GHS_CPU_SWITCH_F1KM_S1    = rh850g3k
+GHS_CPU_SWITCH_F1KM_S1     = rh850g3kh
+RENESAS_CPU_SWITCH_F1KM_S1 = g3kh
+
+####  R7F701684X  ####
+DERIVATIVE_GROUP_701684 = F1KM_S1
+CODEFLASH_SIZE_701684   = 1024
+GLOBAL_RAM_SIZE_701684  = 96
+
+####  R7F701686X  ####
+DERIVATIVE_GROUP_701686 = F1KM_S1
+CODEFLASH_SIZE_701686   = 512
+GLOBAL_RAM_SIZE_701686  = 32
+
+####  R7F701689X  ####
+DERIVATIVE_GROUP_701689 = F1KM_S1
+CODEFLASH_SIZE_701689   = 512
+GLOBAL_RAM_SIZE_701689  = 32
+
+####  R7F701692X  ####
+DERIVATIVE_GROUP_701692 = F1KM_S1
+CODEFLASH_SIZE_701692   = 512
+GLOBAL_RAM_SIZE_701692  = 32
+
+################################################################################
+####  F1KM-S4 Derivatives                                                   ####
+################################################################################
+# The Local RAM can be accessed through 2 different addresses:
+# CPU area (default, access from DMA possible)
+# or Self area (access from DMA prohibited)
+#
+# Alternative addresses within self area (mirrored from CPU area):
+# F1K_RAM_START_ADDRESS_256 = 0xFEDC0000
+
+# older Compiler versions (e.g GHS 2013.5.5) do not support g3kh Core directly.
+# choose the option rh850g3k instead. E.g. GHS 2015.1.7 is supporting g3kh.
+#GHS_CPU_SWITCH_F1KM_S4       = rh850g3k
+GHS_CPU_SWITCH_F1KM_S4        = rh850g3kh
+RENESAS_CPU_SWITCH_F1KM_S4    = g3kh
+
+F1KM_S4_LOCAL_RAM_START_ADDRESS_CORE0_160   = 0xFEBD8000
+F1KM_S4_LOCAL_RAM_START_ADDRESS_CORE0_192   = 0xFEBD0000
+F1KM_S4_LOCAL_RAM_START_ADDRESS_CORE0_256   = 0xFEBC0000
+
+F1KM_S4_GLOBAL_RAM_BANK_A_START_ADDRESS_48  = 0xFEEF4000
+F1KM_S4_GLOBAL_RAM_BANK_B_START_ADDRESS_48  = 0xFEFF4000
+
+F1KM_S4_GLOBAL_RAM_BANK_A_START_ADDRESS_64  = 0xFEEF0000
+F1KM_S4_GLOBAL_RAM_BANK_B_START_ADDRESS_64  = 0xFEFF0000
+
+F1KM_S4_GLOBAL_RAM_BANK_A_START_ADDRESS_96  = 0xFEEE8000
+F1KM_S4_GLOBAL_RAM_BANK_B_START_ADDRESS_96  = 0xFEFE8000
+
+####  R7F701649  ####
+DERIVATIVE_GROUP_701649      = F1KM_S4
+CODEFLASH_SIZE_BANKA_701649  = 4096
+LOCAL_RAM_SIZE_CORE0_701649  = 256
+GLOBAL_RAM_SIZE_BANKA_701649 = 96
+GLOBAL_RAM_SIZE_BANKB_701649 = 96
+
+####  R7F701647  ####
+DERIVATIVE_GROUP_701647      = F1KM_S4
+CODEFLASH_SIZE_BANKA_701647  = 4096
+LOCAL_RAM_SIZE_CORE0_701647  = 256
+GLOBAL_RAM_SIZE_BANKA_701647 = 96
+GLOBAL_RAM_SIZE_BANKB_701647 = 96
+
+####  R7F701638  ####
+DERIVATIVE_GROUP_701638      = F1KM_S4
+CODEFLASH_SIZE_BANKA_701638  = 3072
+LOCAL_RAM_SIZE_CORE0_701638  = 160
+GLOBAL_RAM_SIZE_BANKA_701638 = 48
+GLOBAL_RAM_SIZE_BANKB_701638 = 48
+
+################################################################################
+####  F1KH-D8 Derivatives                                                   ####
+################################################################################
+GHS_CPU_SWITCH_F1KH     = rh850g3kh
+RENESAS_CPU_SWITCH_F1KH = g3kh
+
+F1KH_CODEFLASH_START_ADDRESS_BANKB_3072  = 0x00800000
+F1KH_CODEFLASH_START_ADDRESS_BANKB_4096  = 0x00800000
+
+F1KH_LOCAL_RAM_START_ADDRESS_CORE0_160   = 0xFEBD8000
+F1KH_LOCAL_RAM_START_ADDRESS_CORE0_192   = 0xFEBD0000
+
+F1KH_LOCAL_RAM_START_ADDRESS_CORE1_160   = 0xFE9D8000
+F1KH_LOCAL_RAM_START_ADDRESS_CORE1_192   = 0xFE9D0000
+
+F1KH_GLOBAL_RAM_BANK_A_START_ADDRESS_256 = 0xFEEC0000
+F1KH_GLOBAL_RAM_BANK_A_START_ADDRESS_288 = 0xFEEB8000
+
+F1KH_GLOBAL_RAM_BANK_B_START_ADDRESS_256 = 0xFEFC0000
+F1KH_GLOBAL_RAM_BANK_B_START_ADDRESS_288 = 0xFEFB8000
+
+####  R7F701708  ####
+DERIVATIVE_GROUP_701708      = F1KH
+CODEFLASH_SIZE_BANKA_701708  = 3072
+CODEFLASH_SIZE_BANKB_701708  = 3072
+LOCAL_RAM_SIZE_CORE0_701708  = 160
+LOCAL_RAM_SIZE_CORE1_701708  = 160
+GLOBAL_RAM_SIZE_BANKA_701708 = 256
+GLOBAL_RAM_SIZE_BANKB_701708 = 256
+
+####  R7F701709  ####
+DERIVATIVE_GROUP_701709      = F1KH
+CODEFLASH_SIZE_BANKA_701709  = 4096
+CODEFLASH_SIZE_BANKB_701709  = 4096
+LOCAL_RAM_SIZE_CORE0_701709  = 192
+LOCAL_RAM_SIZE_CORE1_701709  = 192
+GLOBAL_RAM_SIZE_BANKA_701709 = 288
+GLOBAL_RAM_SIZE_BANKB_701709 = 288
+
+####  R7F701711  ####
+DERIVATIVE_GROUP_701711      = F1KH
+CODEFLASH_SIZE_BANKA_701711  = 4096
+CODEFLASH_SIZE_BANKB_701711  = 4096
+LOCAL_RAM_SIZE_CORE0_701711  = 192
+LOCAL_RAM_SIZE_CORE1_701711  = 192
+GLOBAL_RAM_SIZE_BANKA_701711 = 288
+GLOBAL_RAM_SIZE_BANKB_701711 = 288
+
+################################################################################
+####  P1x Derivatives                                                       ####
+################################################################################
+P1M_RAM_START_ADDRESS_64    = 0xFEDF0000
+P1M_RAM_START_ADDRESS_128   = 0xFEDE0000
+
+P1M_E_RAM_START_ADDRESS_64  = 0xFEEF8000
+
+P1M_C_RAM_START_ADDRESS_128 = 0xFEDE0000
+
+P1H_RAM_START_ADDRESS_64    = 0xFEDF0000
+P1H_LOCAL_RAM_START_ADDRESS_CORE0_64    = 0xFEBF0000
+P1H_LOCAL_RAM_START_ADDRESS_CORE1_64    = 0xFE9F0000
+P1H_GLOBAL_RAM_BANK_A_START_ADDRESS_480 = 0xFEE88000
+P1H_GLOBAL_RAM_BANK_B_START_ADDRESS_480 = 0xFEF00000
+P1H_GLOBAL_RAM_BANK_A_START_ADDRESS_672 = 0xFEE58000
+P1H_GLOBAL_RAM_BANK_B_START_ADDRESS_672 = 0xFEF00000
+
+P1L_C_RAM_START_ADDRESS_64    = 0xFEBF0000
+
+GHS_CPU_SWITCH_P1M       = rh850g3m
+RENESAS_CPU_SWITCH_P1M   = g3m
+
+GHS_CPU_SWITCH_P1M_E     = rh850g3m
+RENESAS_CPU_SWITCH_P1M_E = g3m
+
+GHS_CPU_SWITCH_P1M_C     = rh850g3m
+RENESAS_CPU_SWITCH_P1M_C = g3m
+
+GHS_CPU_SWITCH_P1H       = rh850g3m
+RENESAS_CPU_SWITCH_P1H   = g3m
+
+GHS_CPU_SWITCH_P1L_C     = rh850g3m
+RENESAS_CPU_SWITCH_P1L_C = g3m
+
+#### R7F701307X ####
+DERIVATIVE_GROUP_701307 = P1M
+CODEFLASH_SIZE_701307   = 512
+GLOBAL_RAM_SIZE_701307  = 64
+
+#### R7F701310X ####
+DERIVATIVE_GROUP_701310 = P1M
+CODEFLASH_SIZE_701310   = 1024
+GLOBAL_RAM_SIZE_701310  = 128
+
+#### R7F701311X ####
+DERIVATIVE_GROUP_701311 = P1M
+CODEFLASH_SIZE_701311   = 1024
+GLOBAL_RAM_SIZE_701311  = 128
+
+#### R7F701312X ####
+DERIVATIVE_GROUP_701312 = P1M
+CODEFLASH_SIZE_701312   = 1024
+GLOBAL_RAM_SIZE_701312  = 128
+
+#### R7F701318X ####
+DERIVATIVE_GROUP_701318 = P1M
+CODEFLASH_SIZE_701318   = 2048
+GLOBAL_RAM_SIZE_701318  = 128
+
+#### R7F701320X ####
+DERIVATIVE_GROUP_701320 = P1M
+CODEFLASH_SIZE_701320   = 2048
+GLOBAL_RAM_SIZE_701320  = 128
+
+#### R7F701325 ####
+DERIVATIVE_GROUP_701325      = P1H#D5ED
+CODEFLASH_SIZE_BANKA_701325  = 6144# 4096k code flash + 2048k extension code flash (d5 mode)
+CODEFLASH_SIZE_BANKB_701325  = 4096
+LOCAL_RAM_SIZE_CORE0_701325  = 64
+LOCAL_RAM_SIZE_CORE1_701325  = 64
+GLOBAL_RAM_SIZE_BANKA_701325 = 672
+GLOBAL_RAM_SIZE_BANKB_701325 = 672
+
+#### R7F701327 ####
+DERIVATIVE_GROUP_701327      = P1H#D4
+CODEFLASH_SIZE_701327        = 4096
+CODEFLASH_SIZE_BANKA_701327  = 2048
+CODEFLASH_SIZE_BANKB_701327  = 2048
+LOCAL_RAM_SIZE_CORE0_701327  = 64
+LOCAL_RAM_SIZE_CORE1_701327  = 64
+GLOBAL_RAM_SIZE_BANKA_701327 = 480
+GLOBAL_RAM_SIZE_BANKB_701327 = 480
+
+#### R7F701364X ####
+DERIVATIVE_GROUP_701364 = P1M
+CODEFLASH_SIZE_701364   = 2048
+GLOBAL_RAM_SIZE_701364  = 128
+
+#### R7F701371 ####
+DERIVATIVE_GROUP_701371      = P1H#_C
+CODEFLASH_SIZE_BANKA_701371  = 4096
+CODEFLASH_SIZE_BANKB_701371  = 4096
+LOCAL_RAM_SIZE_CORE0_701371  = 64
+LOCAL_RAM_SIZE_CORE1_701371  = 64
+GLOBAL_RAM_SIZE_BANKA_701371 = 480
+GLOBAL_RAM_SIZE_BANKB_701371 = 480
+
+#### R7F701372 ####
+DERIVATIVE_GROUP_701372      = P1H#_C
+CODEFLASH_SIZE_BANKA_701372  = 2048
+CODEFLASH_SIZE_BANKB_701372  = 2048
+LOCAL_RAM_SIZE_CORE0_701372  = 64
+LOCAL_RAM_SIZE_CORE1_701372  = 64
+GLOBAL_RAM_SIZE_BANKA_701372 = 480
+GLOBAL_RAM_SIZE_BANKB_701372 = 480
+
+#### R7F701373 ####
+DERIVATIVE_GROUP_701373 = P1M_C
+CODEFLASH_SIZE_701373   = 2048
+GLOBAL_RAM_SIZE_701373  = 128
+
+#### R7F701378X ####
+DERIVATIVE_GROUP_701378 = P1M_E
+CODEFLASH_SIZE_701378   = 2048
+GLOBAL_RAM_SIZE_701378  = 64
+
+#### R7F701381X ####
+DERIVATIVE_GROUP_701381 = P1M_E
+CODEFLASH_SIZE_701381   = 1024
+GLOBAL_RAM_SIZE_701381  = 64
+
+#### R7F701383X ####
+DERIVATIVE_GROUP_701383 = P1M_E
+CODEFLASH_SIZE_701383   = 1024
+GLOBAL_RAM_SIZE_701383  = 64
+
+#### R7F701391 ####
+DERIVATIVE_GROUP_701391 = P1L_C
+CODEFLASH_SIZE_701391   = 512
+GLOBAL_RAM_SIZE_701391  = 64
+
+################################################################################
+####  R1x Derivatives                                                       ####
+################################################################################
+R1M_RAM_START_ADDRESS_32 = 0xFEDF8000
+R1M_RAM_START_ADDRESS_96 = 0xFEDE8000
+
+GHS_CPU_SWITCH_R1M     = rh850g3k
+RENESAS_CPU_SWITCH_R1M = g3k
+
+#### R7F701062X ####
+DERIVATIVE_GROUP_701062 = R1M
+CODEFLASH_SIZE_701062   = 512
+GLOBAL_RAM_SIZE_701062  = 32
+
+#### R7F701064X ####
+DERIVATIVE_GROUP_701064 = R1M
+CODEFLASH_SIZE_701064   = 1024
+GLOBAL_RAM_SIZE_701064  = 96
+
+#### R7F701070X ####
+DERIVATIVE_GROUP_701070 = R1M
+CODEFLASH_SIZE_701070   = 1024
+GLOBAL_RAM_SIZE_701070  = 96
+
+################################################################################
+####  D1x Derivatives                                                       ####
+################################################################################
+D1S_RAM_START_ADDRESS_128 = 0xFEBE0000
+D1L_RAM_START_ADDRESS_256 = 0xFEBC0000
+D1L_RAM_START_ADDRESS_512 = 0xFEB80000
+D1M_RAM_START_ADDRESS_512 = 0xFEB80000
+
+GHS_CPU_SWITCH_D1M     = rh850g3m
+RENESAS_CPU_SWITCH_D1M = g3m
+GHS_CPU_SWITCH_D1L     = rh850g3m
+RENESAS_CPU_SWITCH_D1L = g3m
+GHS_CPU_SWITCH_D1S     = rh850g3m
+RENESAS_CPU_SWITCH_D1S = g3m
+
+#### D1L1 ####
+DERIVATIVE_GROUP_701400 = D1L
+CODEFLASH_SIZE_701400   = 2048
+GLOBAL_RAM_SIZE_701400  = 256
+
+DERIVATIVE_GROUP_701401 = D1L
+CODEFLASH_SIZE_701401   = 2048
+GLOBAL_RAM_SIZE_701401  = 256
+
+DERIVATIVE_GROUP_701421 = D1L
+CODEFLASH_SIZE_701421   = 2048
+GLOBAL_RAM_SIZE_701421  = 256
+
+#### D1L2 ####
+DERIVATIVE_GROUP_701402 = D1L
+CODEFLASH_SIZE_701402   = 4096
+GLOBAL_RAM_SIZE_701402  = 512
+
+DERIVATIVE_GROUP_701422 = D1L
+CODEFLASH_SIZE_701422   = 4096
+GLOBAL_RAM_SIZE_701422  = 512
+
+#### D1L2H ####
+DERIVATIVE_GROUP_701403 = D1L
+CODEFLASH_SIZE_701403   = 4096
+GLOBAL_RAM_SIZE_701403  = 512
+
+DERIVATIVE_GROUP_701423 = D1L
+CODEFLASH_SIZE_701423   = 4096
+GLOBAL_RAM_SIZE_701423  = 512
+
+#### D1M1 ####
+DERIVATIVE_GROUP_701404 = D1M
+CODEFLASH_SIZE_701404   = 3840
+GLOBAL_RAM_SIZE_701404  = 512
+
+DERIVATIVE_GROUP_701424 = D1M
+CODEFLASH_SIZE_701424   = 3840
+GLOBAL_RAM_SIZE_701424  = 512
+
+DERIVATIVE_GROUP_701405 = D1M
+CODEFLASH_SIZE_701405   = 5120
+GLOBAL_RAM_SIZE_701405  = 512
+
+DERIVATIVE_GROUP_701425 = D1M
+CODEFLASH_SIZE_701425   = 5120
+GLOBAL_RAM_SIZE_701425  = 512
+
+#### D1M1A ####
+DERIVATIVE_GROUP_701441 = D1M
+CODEFLASH_SIZE_701441   = 4096
+GLOBAL_RAM_SIZE_701441  = 512
+
+DERIVATIVE_GROUP_701461 = D1M
+CODEFLASH_SIZE_701461   = 4096
+GLOBAL_RAM_SIZE_701461  = 512
+
+#### D1M1_V2 ####
+DERIVATIVE_GROUP_701442 = D1M
+CODEFLASH_SIZE_701442   = 4096
+GLOBAL_RAM_SIZE_701442  = 512
+
+DERIVATIVE_GROUP_701462 = D1M
+CODEFLASH_SIZE_701462   = 4096
+GLOBAL_RAM_SIZE_701462  = 512
+
+#### D1M1H ####
+DERIVATIVE_GROUP_701406 = D1M
+CODEFLASH_SIZE_701406   = 3840
+GLOBAL_RAM_SIZE_701406  = 512
+
+DERIVATIVE_GROUP_701426 = D1M
+CODEFLASH_SIZE_701426   = 3840
+GLOBAL_RAM_SIZE_701426  = 512
+
+DERIVATIVE_GROUP_701407 = D1M
+CODEFLASH_SIZE_701407   = 5120
+GLOBAL_RAM_SIZE_701407  = 512
+
+DERIVATIVE_GROUP_701427 = D1M
+CODEFLASH_SIZE_701427   = 5120
+GLOBAL_RAM_SIZE_701427  = 512
+
+#### D1M2 ####
+DERIVATIVE_GROUP_701408 = D1M
+CODEFLASH_SIZE_701408   = 3840
+GLOBAL_RAM_SIZE_701408  = 512
+
+DERIVATIVE_GROUP_701428 = D1M
+CODEFLASH_SIZE_701428   = 3840
+GLOBAL_RAM_SIZE_701428  = 512
+
+DERIVATIVE_GROUP_701410 = D1M
+CODEFLASH_SIZE_701410   = 5120
+GLOBAL_RAM_SIZE_701410  = 512
+
+DERIVATIVE_GROUP_701430 = D1M
+CODEFLASH_SIZE_701430   = 5120
+GLOBAL_RAM_SIZE_701430  = 512
+
+#### D1M2H ####
+DERIVATIVE_GROUP_701411 = D1M
+CODEFLASH_SIZE_701411   = 3840
+GLOBAL_RAM_SIZE_701411  = 512
+
+DERIVATIVE_GROUP_701431 = D1M
+CODEFLASH_SIZE_701431   = 3840
+GLOBAL_RAM_SIZE_701431  = 512
+
+DERIVATIVE_GROUP_701412 = D1M
+CODEFLASH_SIZE_701412   = 5120
+GLOBAL_RAM_SIZE_701412  = 512
+
+DERIVATIVE_GROUP_701432 = D1M
+CODEFLASH_SIZE_701432   = 5120
+GLOBAL_RAM_SIZE_701432  = 512
+
+#### D1S1L ####
+DERIVATIVE_GROUP_701416 = D1S
+CODEFLASH_SIZE_701416   = 1024
+GLOBAL_RAM_SIZE_701416  = 128
+
+################################################################################
+####  E1x Derivatives                                                       ####
+################################################################################
+E1L_RAM_START_ADDRESS_48    = 0xFEBF4000
+E1M_RAM_START_ADDRESS_256   = 0xFEEE0000
+E1FCC_RAM_START_ADDRESS_256 = 0xFEEE0000
+
+GHS_CPU_SWITCH_E1L       = rh850g3m
+RENESAS_CPU_SWITCH_E1L   = g3m
+GHS_CPU_SWITCH_E1M       = rh850g3m
+RENESAS_CPU_SWITCH_E1M   = g3m
+GHS_CPU_SWITCH_E1FCC     = rh850g3m
+RENESAS_CPU_SWITCH_E1FCC = g3m
+
+#### R7F701201X ####
+DERIVATIVE_GROUP_701201 = E1L
+CODEFLASH_SIZE_701201   = 2048
+GLOBAL_RAM_SIZE_701201  = 48
+
+#### R7F701205X ####
+DERIVATIVE_GROUP_701205 = E1L
+CODEFLASH_SIZE_701205   = 2048
+GLOBAL_RAM_SIZE_701205  = 48
+
+#### R7F701Z11X ####
+DERIVATIVE_GROUP_701Z11 = E1FCC
+CODEFLASH_SIZE_701Z11   = 4096
+GLOBAL_RAM_SIZE_701Z11  = 256
+
+#### R7F701Z12X ####
+DERIVATIVE_GROUP_701Z12 = E1FCC
+CODEFLASH_SIZE_701Z12   = 4096
+GLOBAL_RAM_SIZE_701Z12  = 256
+
+#### R7F701202X ####
+DERIVATIVE_GROUP_701202 = E1M
+CODEFLASH_SIZE_701202   = 4096
+GLOBAL_RAM_SIZE_701202  = 256
+
+#### R7F701204X ####
+DERIVATIVE_GROUP_701204 = E1M
+CODEFLASH_SIZE_701204   = 4096
+GLOBAL_RAM_SIZE_701204  = 256
+
+#### R7F701216X ####
+DERIVATIVE_GROUP_701216 = E1M
+CODEFLASH_SIZE_701216   = 4096
+GLOBAL_RAM_SIZE_701216  = 256
+
+################################################################################
+####  C1x Derivatives                                                       ####
+################################################################################
+C1H_LOCAL_RAM_START_ADDRESS_CORE0_64   = 0xFEBF0000
+C1H_LOCAL_RAM_START_ADDRESS_CORE1_64   = 0xFE9F0000
+C1H_GLOBAL_RAM_BANK_A_START_ADDRESS_64 = 0xFEEF0000
+C1H_GLOBAL_RAM_BANK_B_START_ADDRESS_48 = 0xFEF00000
+
+C1M_RAM_START_ADDRESS_64    = 0xFEBF0000
+
+C1M_AZ_CODEFLASH_START_ADDRESS_BANKB_767  = 0x00200000
+C1M_AZ_LOCAL_RAM_START_ADDRESS_CORE0_64   = 0xFEBF0000
+C1M_AZ_LOCAL_RAM_START_ADDRESS_CORE1_64   = 0xFE9F0000
+C1M_AZ_GLOBAL_RAM_BANK_A_START_ADDRESS_64 = 0xFEEF0000
+C1M_AZ_GLOBAL_RAM_BANK_B_START_ADDRESS_0  = 0xFEEF0000# same address than bank A, C1M_AZ only have bank A
+
+GHS_CPU_SWITCH_C1H        = rh850g3m
+RENESAS_CPU_SWITCH_C1H    = g3m
+GHS_CPU_SWITCH_C1M        = rh850g3m
+RENESAS_CPU_SWITCH_C1M    = g3m
+GHS_CPU_SWITCH_C1M_AZ     = rh850g3m
+RENESAS_CPU_SWITCH_C1M_AZ = g3m
+
+#### R7F701260X ####
+DERIVATIVE_GROUP_701260 = C1H
+CODEFLASH_SIZE_BANKA_701260  = 2048
+CODEFLASH_SIZE_BANKB_701260  = 2048
+LOCAL_RAM_SIZE_CORE0_701260  = 64
+LOCAL_RAM_SIZE_CORE1_701260  = 64
+GLOBAL_RAM_SIZE_BANKA_701260 = 64
+GLOBAL_RAM_SIZE_BANKB_701260 = 48
+
+#### R7F701263X ####
+DERIVATIVE_GROUP_701263 = C1M
+CODEFLASH_SIZE_701263   = 2048
+GLOBAL_RAM_SIZE_701263  = 64
+
+#### R7F701270X ####
+DERIVATIVE_GROUP_701270      = C1H
+CODEFLASH_SIZE_BANKA_701270  = 2048
+CODEFLASH_SIZE_BANKB_701270  = 2048
+LOCAL_RAM_SIZE_CORE0_701270  = 64
+LOCAL_RAM_SIZE_CORE1_701270  = 64
+GLOBAL_RAM_SIZE_BANKA_701270 = 64
+GLOBAL_RAM_SIZE_BANKB_701270 = 48
+
+#### R7F701276X ####
+DERIVATIVE_GROUP_701276      = C1M_AZ
+CODEFLASH_SIZE_BANKA_701276  = 767
+CODEFLASH_SIZE_BANKB_701276  = 767
+LOCAL_RAM_SIZE_CORE0_701276  = 64
+LOCAL_RAM_SIZE_CORE1_701276  = 64
+GLOBAL_RAM_SIZE_BANKA_701276 = 64
+GLOBAL_RAM_SIZE_BANKB_701276 = 0
+
