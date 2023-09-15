@@ -1,0 +1,257 @@
+###############################################################################
+#  Makefile.project.part.defines
+###############################################################################
+# MakeSupport type: Vector
+# Derived product: FlashBootLoader
+# Folder structure: Legacy
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# Root of the project (dir where the additionally used components reside) from the
+# scope of the makefile location.
+# E.g. makefile is located under
+#    d:\usr\develop\can\PAG\HC08\COSMIC\testsuit\appl
+# and the components like drv, il reside under
+#    d:\usr\develop\can\PAG\HC08\COSMIC
+# The root is given (relative to the Makefile)
+#    ROOT = ..\..
+#------------------------------------------------------------------------------
+ROOT = ..\..\..
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# $(GENTOOL_DIR) contains the path to your version.info file
+# E.g.:    GENTOOL_DIR = $(ROOT)\Generators\Components
+#------------------------------------------------------------------------------
+GENTOOL_DIR = $(ROOT)\Generators\Components
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# Version of Makefile.project.part.defines
+#------------------------------------------------------------------------------
+MPPD_VERSION = 32
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# Path to which *.obj, *.err, *.lst will be moved/generated
+#------------------------------------------------------------------------------
+OBJ_PATH = obj
+ERR_PATH = err
+LST_PATH = lst
+LOG_PATH = log
+LIB_PATH = lib
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# Redirect error output to stdout (and not only to *.err files)
+#------------------------------------------------------------------------------
+ERR_TO_STDOUT = 1
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# $(GENDATA_DIR) contains the directory into which the ecu specific data is
+# generated
+# E.g.: GENDATA_DIR = GenData
+#------------------------------------------------------------------------------
+GENDATA_DIR = GenData
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# $(GENDATA_OS_DIR) contains the directory into which the ecu osspecific data is
+# generated
+# E.g.: GENDATA_OS_DIR = GenDataOs
+#------------------------------------------------------------------------------
+GENDATA_OS_DIR = $(GENDATA_DIR)
+
+#------------------------------------------------------------------------------
+# Subfolder of BSW components (mandatory BSW with konStruct 1.7.xx or newer)
+#------------------------------------------------------------------------------
+GLOBAL_COMP_DIR = BSW
+
+#------------------------------------------------------------------------------
+
+#------------------------------------------------------------------------------
+#------------------------- MUST be filled out ---------------------------------
+# $(TGFGENDATA_DIR) contains the directory into which the Test Generator
+# Framework data is generated
+# E.g.: TGFGENDATA_DIR = TGFGenData
+#------------------------------------------------------------------------------
+TGFGENDATA_DIR =
+
+ifneq ($(TGFGENDATA_DIR),)
+include $(TGFGENDATA_DIR)/Makefile.Appl
+endif
+
+###############################################################################
+#  Modules
+###############################################################################
+MODULE_LIST_PROJECT                                              += DRVEEP_DUMMY
+MODULE_LIST_PROJECT                                              += DRVFLS_RH850F1XREN01HISSUB
+MODULE_LIST_PROJECT                                              += DRVFLS_RH850F1XREN02HISSUB
+MODULE_LIST_PROJECT                                              += FBLASRSTUBS
+MODULE_LIST_PROJECT                                              += FBLDIAG_14229_BJEV
+MODULE_LIST_PROJECT                                              += FBLDIAG_14229_CORE
+MODULE_LIST_PROJECT                                              += FBLDRVCAN_RH850RSCANCRX
+MODULE_LIST_PROJECT                                              += FBLDRVFLASH_RH850DATARV40HIS
+MODULE_LIST_PROJECT                                              += FBLDRVFLASH_RH850RV40HIS_IMPL_MAIN
+MODULE_LIST_PROJECT                                              += FBLLIB_MCMP
+MODULE_LIST_PROJECT                                              += FBLLIB_MEM
+MODULE_LIST_PROJECT                                              += FBLMAIN
+MODULE_LIST_PROJECT                                              += FBLMCMPDL_PDUR
+MODULE_LIST_PROJECT                                              += FBLMIO
+MODULE_LIST_PROJECT                                              += FBLUPD_MAIN
+MODULE_LIST_PROJECT                                              += FBLVTAB_RH850
+MODULE_LIST_PROJECT                                              += FBLVTABAPPL_RH850
+MODULE_LIST_PROJECT                                              += FBLWD
+MODULE_LIST_PROJECT                                              += FBLWRAPPERCOM_PDUR
+MODULE_LIST_PROJECT                                              += FBLWRAPPERFLASH_RH850DATARV40HIS
+MODULE_LIST_PROJECT                                              += FBLWRAPPERFLASH_RH850RV40HIS_IMPL_MAIN
+MODULE_LIST_PROJECT                                              += IF_ASRIFCAN
+MODULE_LIST_PROJECT                                              += SYSSERVICE_SECMODHIS
+MODULE_LIST_PROJECT                                              += LIBRARY
+MODULE_LIST_PROJECT                                              += MSR_COMPONENTS
+
+DRVEEP_DUMMY_USED                                                = 0
+DRVFLS_RH850F1XREN01HISSUB_USED                                  = 1
+DRVFLS_RH850F1XREN02HISSUB_USED                                  = 0
+FBLASRSTUBS_USED                                                 = 0
+FBLDIAG_14229_BJEV_USED                                          = 0
+FBLDIAG_14229_CORE_USED                                          = 0
+FBLDRVCAN_RH850RSCANCRX_USED                                     = 0
+FBLDRVFLASH_RH850DATARV40HIS_USED                                = 0
+FBLDRVFLASH_RH850RV40HIS_IMPL_MAIN_USED                          = 1
+FBLLIB_MCMP_USED                                                 = 0
+FBLLIB_MEM_USED                                                  = 0
+FBLMAIN_USED                                                     = 0
+FBLMCMPDL_PDUR_USED                                              = 0
+FBLMIO_USED                                                      = 0
+FBLUPD_MAIN_USED                                                 = 0
+FBLVTAB_RH850_USED                                               = 0
+FBLVTABAPPL_RH850_USED                                           = 0
+FBLWD_USED                                                       = 0
+FBLWRAPPERCOM_PDUR_USED                                          = 0
+FBLWRAPPERFLASH_RH850DATARV40HIS_USED                            = 0
+FBLWRAPPERFLASH_RH850RV40HIS_IMPL_MAIN_USED                      = 0
+IF_ASRIFCAN_USED                                                 = 0
+SYSSERVICE_SECMODHIS_USED                                        = 0
+# LIBRARY files: 1=compile files / 0=use library
+LIBRARY_USED                                                     = 0
+
+# Support for MSR components with makefile
+# Setting MSR_COMPONENTS_USED = 0 will exclude ALL MSR components at once
+MSR_COMPONENTS_USED                                              = 0
+
+DRVCAN__COREASR_USED                                             = 0
+GW_ASRPDURCFG5_USED                                              = 0
+SYSSERVICE_ASRDET_USED                                           = 0
+TP_ASR4TPCAN_USED                                                = 0
+VSTDLIB_USED                                                     = 0
+
+# DrvEep_Dummy@Implementation
+DRVEEP_DUMMY_SOURCES                                             += BSW\Eep\EepIO.c
+
+# DrvFls_Rh850F1xRen01HisSub@Implementation
+DRVFLS_RH850F1XREN01HISSUB_SOURCES                               += BSW\Flash\FlashLib\r_fcl_hw_access.c
+DRVFLS_RH850F1XREN01HISSUB_SOURCES                               += BSW\Flash\FlashLib\r_fcl_user_if.c
+
+# DrvFls_Rh850F1xRen02HisSub@Implementation
+DRVFLS_RH850F1XREN02HISSUB_SOURCES                               += BSW\Flash_XD1\FlashLib\r_fdl_hw_access.c
+DRVFLS_RH850F1XREN02HISSUB_SOURCES                               += BSW\Flash_XD1\FlashLib\r_fdl_user_if.c
+DRVFLS_RH850F1XREN02HISSUB_SOURCES                               += BSW\Flash_XD1\FlashLib\r_fdl_user_if_init.c
+
+# FblAsrStubs@Impl_BswStub
+FBLASRSTUBS_SOURCES                                              += BSW\FblAsrStubs\Dem.c
+FBLASRSTUBS_SOURCES                                              += BSW\FblAsrStubs\EcuM.c
+
+# FblDiag_14229_Bjev@Implementation
+FBLDIAG_14229_BJEV_SOURCES                                       += BSW\Fbl\fbl_diag_oem.c
+
+# FblDiag_14229_Core@Implementation
+FBLDIAG_14229_CORE_SOURCES                                       += BSW\Fbl\fbl_diag_core.c
+
+# FblDrvCan_Rh850RscanCrx@Implementation
+FBLDRVCAN_RH850RSCANCRX_SOURCES                                  += BSW\Fbl\fbl_hw.c
+
+# FblDrvFlash_Rh850DataRv40His@Implementation
+FBLDRVFLASH_RH850DATARV40HIS_SOURCES                             += BSW\Flash_XD1\flashdrv_xd1.c
+
+# FblDrvFlash_Rh850Rv40His@Impl_Main
+FBLDRVFLASH_RH850RV40HIS_IMPL_MAIN_SOURCES                       += BSW\Flash\flashdrv.c
+
+# FblLib_Mcmp@Impl_McmpMem
+FBLLIB_MCMP_SOURCES                                              += BSW\Mcmp\mcmp_mem.c
+
+# FblLib_Mcmp@Impl_McmpSl
+FBLLIB_MCMP_SOURCES                                              += BSW\Mcmp\mcmp_sl.c
+
+# FblLib_Mcmp@Impl_McmpTpBasic
+FBLLIB_MCMP_SOURCES                                              += BSW\Mcmp\mcmp_tp.c
+
+# FblLib_Mem@Implementation
+FBLLIB_MEM_SOURCES                                               += BSW\Fbl\fbl_mem.c
+
+# FblMain@Implementation
+FBLMAIN_SOURCES                                                  += BSW\Fbl\fbl_main.c
+
+# FblMcmpDl_PduR@Implementation
+FBLMCMPDL_PDUR_SOURCES                                           += BSW\Mcmp\mcmp_dl.c
+FBLMCMPDL_PDUR_SOURCES                                           += BSW\Mcmp\mcmp_dl_queue.c
+
+# FblMio@Implementation
+FBLMIO_SOURCES                                                   += BSW\Fbl\fbl_mio.c
+FBLMIO_DATA                                                      += $(GENDATA_DIR)\Fbl_Fbt.c
+
+# FblUpd_Main@Implementation
+FBLUPD_MAIN_SOURCES                                              += BSW\FblUpd\upd_main.c
+
+# FblVtab_Rh850@Implementation
+FBLVTAB_RH850_SOURCES                                            += BSW\Fbl\fbl_vect.c
+
+# FblVtabAppl_Rh850@Implementation
+FBLVTABAPPL_RH850_SOURCES                                        += BSW\Fbl\fbl_applvect.c
+
+# FblWd@Implementation
+FBLWD_SOURCES                                                    += BSW\Fbl\fbl_wd.c
+
+# FblWrapperCom_PduR@Implementation
+FBLWRAPPERCOM_PDUR_SOURCES                                       += BSW\FblCw\fbl_cw.c
+FBLWRAPPERCOM_PDUR_DATA                                          += $(GENDATA_DIR)\FblCw_Lcfg.c
+FBLWRAPPERCOM_PDUR_DATA                                          += $(GENDATA_DIR)\FblCw_PBcfg.c
+
+# FblWrapperFlash_Rh850DataRv40His@Implementation
+FBLWRAPPERFLASH_RH850DATARV40HIS_SOURCES                         += BSW\Fbl\fbl_flio_xd1.c
+
+# FblWrapperFlash_Rh850Rv40His@Impl_Main
+FBLWRAPPERFLASH_RH850RV40HIS_IMPL_MAIN_SOURCES                   += BSW\Fbl\fbl_flio.c
+
+#if_AsrIfCan@Implementation
+IF_ASRIFCAN_SOURCES                                              += BSW\CanIf\CanIf.c
+IF_ASRIFCAN_DATA                                                 += $(GENDATA_DIR)\CanIf_Lcfg.c
+IF_ASRIFCAN_DATA                                                 += $(GENDATA_DIR)\CanIf_PBcfg.c
+
+# SysService_SecModHis@Impl_Crc
+SYSSERVICE_SECMODHIS_SOURCES                                     += BSW\SecMod\Sec_Crc.c
+
+# SysService_SecModHis@Impl_SeedKey
+SYSSERVICE_SECMODHIS_SOURCES                                     += BSW\SecMod\Sec_SeedKey.c
+
+# SysService_SecModHis@Impl_Verification
+SYSSERVICE_SECMODHIS_SOURCES                                     += BSW\SecMod\Sec_Verification.c
+
+# SysService_SecModHis@Implementation
+SYSSERVICE_SECMODHIS_SOURCES                                     += BSW\SecMod\Sec.c
+SYSSERVICE_SECMODHIS_DATA                                        += $(GENDATA_DIR)\SecMPar.c
+
+# LIBRARY: all sources that shall/can be delivered as part of a library
+LIBRARY_SOURCES                                                  +=
+
+# Additional BSW include directories
+#ADDITIONAL_INCLUDES                                              += $(ROOT)\BSW\Flash\FlashLib
+#ADDITIONAL_INCLUDES                                              += $(ROOT)\BSW\Flash
+
+###############################################################################
+#  Application (DemoFbl)
+###############################################################################
+
+ASM_SOURCES +=  $(ROOT)\BSW\Flash\FlashLib\r_fcl_hw_access_asm.850
+

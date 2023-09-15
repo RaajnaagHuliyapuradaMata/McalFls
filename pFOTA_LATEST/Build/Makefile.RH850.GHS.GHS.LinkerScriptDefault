@@ -1,0 +1,104 @@
+#######################################################################################################################
+# File Name  : Makefile.RH850.GHS.GHS.LinkerScriptDefault                                     #
+# Description: Default Linker/Symbol Preprocessor command file generation                     #
+# Project    : Vector Basic Runtime System                                                    #
+# Module     : BrsHw for Platform Renesas RH850                                               #
+#              and Compiler GreenHills                                                        #
+#                                                                                             #
+#---------------------------------------------------------------------------------------------------------------------#
+# COPYRIGHT                                                                                   #
+#---------------------------------------------------------------------------------------------------------------------#
+# Copyright (c) 2018 by Vector Informatik GmbH.                                                  All rights reserved.#
+#                                                                                             #
+#---------------------------------------------------------------------------------------------------------------------#
+# AUTHOR IDENTITY                                                                             #
+#---------------------------------------------------------------------------------------------------------------------#
+# Name                          Initials      Company                                         #
+# ----------------------------  ------------  ------------------------------------------------------------------------#
+# Steffen Frank                 visfsn        Vector Informatik GmbH                          #
+# Benjamin Walter               visbwa        Vector Informatik GmbH                          #
+# Jan Lutterbeck                visljn        Vector Informatik GmbH                          #
+# David Feuerstein              visdfe        Vector Informatik GmbH                          #
+# Sascha Mauser                 vismaa        Vector Informatik GmbH                          #
+#---------------------------------------------------------------------------------------------------------------------#
+# REVISION HISTORY                                                                            #
+#---------------------------------------------------------------------------------------------------------------------#
+# Version   Date        Author  Description                                                   #
+# --------  ----------  ------  --------------------------------------------------------------------------------------#
+# 01.00.00  2014-06-10  visfsn  Initial version                                               #
+# 01.01.00  2014-06-17  visfsn  Changed variable for memory mapping                           #
+# 01.02.00  2014-07-30  visbwa  Adaptions for new BRS code structure                          #
+# 01.02.01  2014-08-27  visljn  Linker labels for SDA optimization added                      #
+# 01.02.02  2014-09-02  visdfe  Added Data and Const Section for Mcal Fls Driver              #
+# 01.03.00  2016-06-20  visbwa  adapted file header according to Brs_Template 2.00.01         #
+# 01.04.00  2016-09-09  visbwa  Vectable separated, Makefile.RH850.GHS.GHS.LinkerScriptMultiCore introduced#
+# 01.04.01  2017-04-28  visbwa  Renamed LD_FILE_DEFAULT by LD_FILE directly                   #
+# 01.05.00  2018-01-18  visbwa  Removed outdated support for old OS (only OsGen7 supported within different file)#
+# 01.05.01  2018-01-30  vismaa  Added symbol _EXCEPTIONTABLE_START_ADDR and _VECTORTABLE_START_ADDR for usage in#
+#                               the startupcode                                               #
+#######################################################################################################################
+
+# Interrupt Vector Table base address for MasterCore
+INTVECT_COREEXCEPTIONS_CORE0 = 0x00
+INTVECT_EXTERNALINT_CORE0 =    0x200
+
+#------------------------------------------------------------------------------
+# rule to generate linker command file
+#------------------------------------------------------------------------------
+
+#############################################################################################################################################
+# MAIN LINKER SCRIPT CODE
+#############################################################################################################################################
+define LD_FILE
+ $(ECHO) "MEMORY {"                                                                                                                  > $@; \
+  $(ECHO) "  /* ROM /FLASH */"                                                                                                       >> $@; \
+  $(ECHO) "  iVect       : ORIGIN = 0x00000000, LENGTH = 0x300"                                                                       >> $@; \
+  $(ECHO) "  iBMHeader   : ORIGIN = 0x00000300, LENGTH = 0x20"                                                                     >> $@; \
+  $(ECHO) "  iFbl		 : ORIGIN = 0x00000320, LENGTH = 0x20000-0x320"                                                              >> $@; \
+  $(ECHO) "  iApplBMHeaderHdr: ORIGIN = 0x00020000, LENGTH = 0x100"                                                                    >> $@; \
+  $(ECHO) "  iApplVect   : ORIGIN = 0x00020100, LENGTH = 0x100"                                                                      >> $@; \
+  $(ECHO) "  iAppl       : ORIGIN = 0x00020200, LENGTH = 0x20000"                                                                    >> $@; \
+  $(ECHO) "  /* Primary RAM */"                                                                                                      >> $@; \
+  $(ECHO) "  iFlashDrv   : ORIGIN = 0xFEDF8000, LENGTH = 0x2800"                                                                     >> $@; \
+  $(ECHO) "  iEeprom     : ORIGIN = 0xFEDFA800, LENGTH = 0x00000300"                                                                 >> $@; \
+  $(ECHO) "  MAGICFL     : ORIGIN = 0xFEDFAB00, LENGTH = 0x00000010"                                                                 >> $@; \
+  $(ECHO) "  iRAM2       : ORIGIN = 0xFEDFAB10, LENGTH = 0x000004F0"                                                                 >> $@; \
+  $(ECHO) "  iStack      : ORIGIN = 0xFEDFB000, LENGTH = 0x00001000"                                                                 >> $@; \
+  $(ECHO) "  iRAM        : ORIGIN = 0xFEDFC000, LENGTH = 0x0000C000"                                                                 >> $@; \
+  $(ECHO) "}"                                                                                                                      >> $@; \
+  $(ECHO) "SECTIONS {"                                                                                                               >> $@; \
+  $(ECHO) ""                                                                                                                         >> $@; \
+  $(ECHO) "  /********************************************************************************************************************/" >> $@; \
+  $(ECHO) "  /* RAM*/"                                                                                                               >> $@; \
+  $(ECHO) "  /********************************************************************************************************************/" >> $@; \
+  $(ECHO) "  /* RAM */                                                                                                             " >> $@; \
+  $(ECHO) "  .sdabase                 align(4) :>iFlashDrv  /* initialize globalpointer GP for SDA addressing */                   " >> $@; \
+  $(ECHO) "  .signature                align(4) :>.          /* Space for FlashCode */                                             " >> $@; \
+  $(ECHO) "  .text                    align(4) :>.          /* program code area */                                                " >> $@; \
+   $(ECHO) "  .R_FCL_CODE_RAM          align(4) :>.                                                                                " >> $@; \
+  $(ECHO) "  .R_FCL_CODE_ROMRAM       align(4) :>.                                                                                 " >> $@; \
+  $(ECHO) "  .R_FCL_DATA              align(4) :>.                                                                                 " >> $@; \
+  $(ECHO) "  .R_FCL_CODE_USRINT       align(4) :>.          /* Interrupt code located in RAM */                                    " >> $@; \
+  $(ECHO) "  .R_FCL_CODE_USR          align(4) :>.          /* User code located in RAM */                                         " >> $@; \
+  $(ECHO) "  .R_FCL_CODE_ROM          align(4) :>.          /* FCL code in ROM */                                                  " >> $@; \
+  $(ECHO) "  .rozdata                          :>.          /* constant datas in ZDA area */                                       " >> $@; \
+  $(ECHO) "  .robase                  align(4) :>.          /* initialize textpointer TP for SDA addressing */                     " >> $@; \
+  $(ECHO) "  .rosdata                 align(4) :>.          /* constant datas in SDA area */                                       " >> $@; \
+  $(ECHO) "  .rodata                  align(4) :>.          /* constant datas in normal area */                                    " >> $@; \
+  $(ECHO) "  .data                             :>.          /* initialized data */                                                 " >> $@; \
+  $(ECHO) "  .bss                     align(4) :>.          /* zero initialized data*/                                             " >> $@; \
+  $(ECHO) "  .sdata                   align(4) :>.          /* initialized data in SDA area*/                                      " >> $@; \
+  $(ECHO) "  .sbss                    align(4) :>.          /* zero initialized data in SDA area*/                                 " >> $@; \
+  $(ECHO) "  .zdata                   align(4) :>.          /* initialized data in ZDA area*/                                      " >> $@; \
+  $(ECHO) "  .zbss                    align(4) :>.          /* zero initialized data in ZDA area*/                                 " >> $@; \
+  $(ECHO) "  .tdata                   align(4) MAX_SIZE(256) :>.      /* initialized and zero-initialized data in TDA area */      " >> $@; \
+  $(ECHO) "  .secinfo                 align(4) :>.          /* ghs internal (runtime library) */                                   " >> $@; \
+  $(ECHO) "  .fixaddr                 align(4) :>.          /* ghs internal (compiler) */                                          " >> $@; \
+  $(ECHO) "  .fixtype                 align(4) :>.          /* ghs internal (compiler) */                                          " >> $@; \
+  $(ECHO) "  .syscall                 align(4) :>.          /* ghs internal (linker) */                                            " >> $@; \
+  $(ECHO) "  .R_FCL_CODE_RAM_EX_PROT  align(4) pad(0x20)     :>.           /* ECC Exception protection */                          " >> $@; \
+  $(ECHO) "  .R_FCL_CONST             align(4) :>.          /* FCL constants in ROM */                                             " >> $@; \
+  $(ECHO) "  .stack                   align(4) pad(0x1000)   :>iStack     /* definition of stack size */                           " >> $@; \
+  $(ECHO) "}                                                                                                                       " >> $@; \
+  $(ECHO) "-sda                                                                                                                    " >> $@;
+endef

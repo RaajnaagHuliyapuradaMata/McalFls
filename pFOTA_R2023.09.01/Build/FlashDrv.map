@@ -1,0 +1,366 @@
+Host OS:	Windows
+ELXR: Copyright (C) 1983-2015 Green Hills Software.  All Rights Reserved.
+Release: Compiler v2015.1.7
+Build Directory: [Directory] BTOWORKER6:c:/build_2015_1_bto/2015-10-21.2100-2015_1_bto/win64-comp
+Revision: [VCInfo] http://toolsvc/branches/release-branch-70-bto/src@544153 (built by build)
+Revision Date: Thu Oct 22 09:05:22 2015
+
+Release Date: Thu Oct 22 09:32:31 2015
+
+Load Map Tue Oct 08 07:56:04 2019
+Image Summary
+
+  Section              Base      Size(hex)    Size(dec)  SecOffs
+  .sdabase             fedf8000  00000000            0   0000000
+  .signature           fedf8000  00000014           20   0000180
+  .text                fedf8014  000003ec         1004   0000194
+  .R_FCL_CODE_RAM      fedf8400  000013c0         5056   0000580
+  .R_FCL_CODE_ROMRAM   fedf97c0  00000b7a         2938   0001940
+  .R_FCL_DATA          fedfa33c  00000080          128   0000000
+  .R_FCL_CODE_USRINT   fedfa3bc  00000000            0   0000000
+  .R_FCL_CODE_USR      fedfa3bc  00000000            0   0000000
+  .R_FCL_CODE_ROM      fedfa3bc  000000e8          232   00024bc
+  .rozdata             fedfa4a4  00000000            0   0000000
+  .robase              fedfa4a4  00000000            0   0000000
+  .rosdata             fedfa4a4  00000000            0   0000000
+  .rodata              fedfa4a4  00000000            0   0000000
+  .data                fedfa4a4  00000000            0   0000000
+  .bss                 fedfa4a4  00000000            0   0000000
+  .sdata               fedfa4a4  00000000            0   0000000
+  .sbss                fedfa4a4  00000010           16   0000000
+  .zdata               fedfa4b4  00000000            0   0000000
+  .zbss                fedfa4b4  00000000            0   0000000
+  .tdata               fedfa4b4  00000000            0   0000000
+  .secinfo             fedfa4b4  00000000            0   0000000
+  .fixaddr             fedfa4b4  00000000            0   0000000
+  .fixtype             fedfa4b4  00000000            0   0000000
+  .syscall             fedfa4b4  00000000            0   0000000
+  .R_FCL_CODE_RAM_EX_PROT fedfa4b4  00000020           32   0000000
+  .R_FCL_CONST         fedfa4d4  00000013           19   00025a4
+  .stack               fedfb000  00001000         4096   0000000
+  .note.renesas        00000000  00000050           80   00025b8
+  .linfix              00000000  00000000            0   0000000
+  .gstackfix           00000000  00000000            0   0000000
+
+Load Map Tue Oct 08 07:56:04 2019
+Module Summary
+
+  Origin+Size    Section          Module
+00000000+000050  .note.renesas    <RENESAS ABI INFO>
+fedf8014+0003ec  .text            flashdrv.o
+fedf8000+000014  .signature       flashdrv.o
+fedf8400+001294  .R_FCL_CODE_RAM  r_fcl_hw_access.o
+fedf97c0+0008ac  .R_FCL_CODE_ROMRAM r_fcl_hw_access.o
+fedfa3bc+00009c  .R_FCL_CODE_ROM  r_fcl_hw_access_asm.o
+fedf9694+000092  .R_FCL_CODE_RAM  r_fcl_hw_access_asm.o
+fedfa458+00004c  .R_FCL_CODE_ROM  r_fcl_user_if.o
+fedfa4d4+000013  .R_FCL_CONST     r_fcl_user_if.o
+fedf9726+00009a  .R_FCL_CODE_RAM  r_fcl_user_if.o
+fedfa06c+0002ce  .R_FCL_CODE_ROMRAM r_fcl_user_if.o
+fedfa33c+000080  .R_FCL_DATA      r_fcl_user_if.o
+fedfa4a4+000010  SMALLCOMMON -> .sbss <commons>
+
+Load Map Tue Oct 08 07:56:04 2019
+Global Symbols (sorted numerically)
+
+                  00000000+000140 _R_FCL_CalcFctAddr
+                  00000000+0000ac _R_FCL_CancelRequest
+                  00000000+000138 _R_FCL_CopySections
+                  00000000+000008 _R_FCL_GetVersionString
+                  00000000+00005c _R_FCL_ResumeRequest
+                  00000000+00003e _R_FCL_SuspendRequest
+                  00000000+000000 __ghs_v800_sda_model
+                  00000002+000000 ___ghs_log_fee_level
+ .sdabase         fedf8000+000000 ___ghsbegin_sdabase
+ .signature       fedf8000+000014 _flashHeader
+ .text            fedf8014+00009e _AsmDummy
+ .text            fedf80b2+00001a _FblDrvFlashHandleWD..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cflashdrv.
+ .text            fedf80cc+0000c8 _FblDrvFlashGetBlockByAddr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cflashdrv.
+ .text            fedf8194+0000d6 _ExpFlashInit
+ .text            fedf826a+000054 _ExpFlashDeinit
+ .text            fedf82be+0000be _ExpFlashErase
+ .text            fedf837c+000084 _ExpFlashWrite
+ .R_FCL_CODE_RAM  fedf8400+000006 _R_FCL_I_read_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8400+000000 ___ghsbegin_R_FCL_CODE_RAM
+ .R_FCL_CODE_RAM  fedf8406+000006 _R_FCL_I_read_memory_u16..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf840c+000006 _R_FCL_I_read_memory_u08..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8412+000040 _R_FCL_I_write_unaligned_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8452+000008 _R_FCL_I_write_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf845a+00000a _R_FCL_I_write_memory_u16..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8464+00000a _R_FCL_I_write_memory_u08
+ .R_FCL_CODE_RAM  fedf846e+00000c _R_FCL_I_GetCPUCorePid..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf847a+000074 _R_FCL_FCUFct_VerifyID..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf84ee+000060 _R_FCL_FCUFct_Clear_Cache..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf854e+00004c _R_FCL_FCUFct_Chk_DBFull..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf859a+00008a _R_FCL_FCUFct_VerifyChecksum..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8624+00007c _R_FCL_FCUFct_SetFrequency..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf86a0+000096 _R_FCL_FCUFct_SwitchMode_Start
+ .R_FCL_CODE_RAM  fedf8736+00002e _R_FCL_FCUFct_SwitchMode_Check
+ .R_FCL_CODE_RAM  fedf8764+000058 _R_FCL_FCUFct_ForcedStop..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf87bc+000026 _R_FCL_FCUFct_ChkSuspended..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf87e2+000054 _R_FCL_FCUFct_ClearStatus..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8836+000018 _R_FCL_FCUFct_RestoreLastState..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf884e+0000ae _R_FCL_FCUFct_GetResult..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf88fc+0000b0 _R_FCL_FCUFct_GetConfigArea
+ .R_FCL_CODE_RAM  fedf89ac+000024 _R_FCL_FCUFct_PrepareEnvironment_IntErr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf89d0+000226 _R_FCL_FCUFct_PrepareEnvironment
+ .R_FCL_CODE_RAM  fedf8bf6+00024c _R_FCL_FCUFct_GetDeviceInfo..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8e42+00002a _R_FCL_FCUFct_HandleMultiOperation_IntErr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8e6c+000828 _R_FCL_FCUFct_HandleMultiOperation
+ .R_FCL_CODE_RAM  fedf9694+000000 _R_FCL_FCUFct_Switch_BFlash
+ .R_FCL_CODE_RAM  fedf96aa+000000 _R_FCL_FCUFct_ChkReg
+ .R_FCL_CODE_RAM  fedf96c0+000000 _R_FCL_FCUFct_Clear_Cache_Asm
+ .R_FCL_CODE_RAM  fedf970e+000000 _R_FCL_Fct_Copy_Code
+ .R_FCL_CODE_RAM  fedf9726+00009a _R_FCL_Handler
+ .R_FCL_CODE_ROMRAM fedf97c0+000024 _R_FCL_Fct_CallFromRAM
+ .R_FCL_CODE_ROMRAM fedf97c0+000000 ___ghsbegin_R_FCL_CODE_ROMRAM
+ .R_FCL_CODE_RAM  fedf97c0+000000 ___ghsend_R_FCL_CODE_RAM
+ .R_FCL_CODE_ROMRAM fedf97e4+00011e _R_FCL_FCUFct_HandleResume
+ .R_FCL_CODE_ROMRAM fedf9902+00001e _R_FCL_FCUFct_CheckMode
+ .R_FCL_CODE_ROMRAM fedf9920+000194 _R_FCL_FCUFct_SetConfigArea
+ .R_FCL_CODE_ROMRAM fedf9ab4+0000a6 _R_FCL_FCUFct_GetSecurityFlag
+ .R_FCL_CODE_ROMRAM fedf9b5a+000022 _R_FCL_FCUFct_GetBlockCnt
+ .R_FCL_CODE_ROMRAM fedf9b7c+000038 _R_FCL_FCUFct_GetDeviceName
+ .R_FCL_CODE_ROMRAM fedf9bb4+00012a _R_FCL_FCUFct_GetBlockEndAddr
+ .R_FCL_CODE_ROMRAM fedf9cde+000144 _R_FCL_FCUFct_Erase
+ .R_FCL_CODE_ROMRAM fedf9e22+00012e _R_FCL_FCUFct_Write
+ .R_FCL_CODE_ROMRAM fedf9f50+0000fe _R_FCL_FCUFct_HandleLockBit
+ .R_FCL_CODE_ROMRAM fedfa04e+00001e _R_FCL_FCUFct_LockBitMode
+ .R_FCL_CODE_ROMRAM fedfa06c+0002ce _R_FCL_Execute
+ .R_FCL_CODE_ROMRAM fedfa33a+000000 ___ghsend_R_FCL_CODE_ROMRAM
+ .R_FCL_DATA      fedfa33c+000080 _g_fcl_data_str
+ .R_FCL_CODE_ROM  fedfa3bc+000000 _R_FCL_Fct_CodeRomRam_CalcRange
+ .R_FCL_CODE_USR  fedfa3bc+000000 ___ghsbegin_R_FCL_CODE_USR
+ .R_FCL_CODE_USRINT fedfa3bc+000000 ___ghsbegin_R_FCL_CODE_USRINT
+ .R_FCL_CODE_USR  fedfa3bc+000000 ___ghsend_R_FCL_CODE_USR
+ .R_FCL_CODE_USRINT fedfa3bc+000000 ___ghsend_R_FCL_CODE_USRINT
+ .R_FCL_CODE_ROM  fedfa3d8+000000 _R_FCL_Fct_CodeRam_CalcRange
+ .R_FCL_CODE_ROM  fedfa3f4+000000 _R_FCL_Fct_CodeUsr_CalcRange
+ .R_FCL_CODE_ROM  fedfa410+000000 _R_FCL_Fct_CodeUsrInt_CalcRange
+ .R_FCL_CODE_ROM  fedfa42c+000000 _R_FCL_Fct_CodeExProt_CalcRange
+ .R_FCL_CODE_ROM  fedfa448+000000 _R_FCL_Fct_PrgOffset
+ .R_FCL_CODE_ROM  fedfa458+00004c _R_FCL_Init
+ .rosdata         fedfa4a4+000000 ___ghsbegin_rosdata
+ .sbss            fedfa4a4+000004 _currentFblEP
+ .sbss            fedfa4a8+000004 _currentFblGP
+ .sbss            fedfa4ac+000004 _currentFblTP
+ .sbss            fedfa4b0+000004 _pflashParam
+ .R_FCL_CODE_RAM_EX_PROT fedfa4b4+000000 ___ghsbegin_R_FCL_CODE_RAM_EX_PROT
+ .tdata           fedfa4b4+000000 ___ghsbegin_tdata
+ .secinfo         fedfa4b4+000000 ___ghsbinfo_bcopy
+ .secinfo         fedfa4b4+000000 ___ghseinfo_bcopy
+ .tdata           fedfa4b4+000000 __ep
+ .R_FCL_CODE_RAM_EX_PROT fedfa4d4+000000 ___ghsend_R_FCL_CODE_RAM_EX_PROT
+ .R_FCL_CONST     fedfa4d4+000013 _fcl_ver_str.R_FCL_GetVersionString.D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_user_if..0
+ .sdabase         fee00000+000000 __gp
+ .rosdata         fee024a4+000000 __tp
+
+Load Map Tue Oct 08 07:56:04 2019
+Global Symbols (sorted alphabetically)
+
+ .text            fedf8014+00009e _AsmDummy
+ .text            fedf826a+000054 _ExpFlashDeinit
+ .text            fedf82be+0000be _ExpFlashErase
+ .text            fedf8194+0000d6 _ExpFlashInit
+ .text            fedf837c+000084 _ExpFlashWrite
+ .text            fedf80cc+0000c8 _FblDrvFlashGetBlockByAddr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cflashdrv.
+ .text            fedf80b2+00001a _FblDrvFlashHandleWD..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cflashdrv.
+                  00000000+000140 _R_FCL_CalcFctAddr
+                  00000000+0000ac _R_FCL_CancelRequest
+                  00000000+000138 _R_FCL_CopySections
+ .R_FCL_CODE_ROMRAM fedfa06c+0002ce _R_FCL_Execute
+ .R_FCL_CODE_ROMRAM fedf9902+00001e _R_FCL_FCUFct_CheckMode
+ .R_FCL_CODE_RAM  fedf96aa+000000 _R_FCL_FCUFct_ChkReg
+ .R_FCL_CODE_RAM  fedf87bc+000026 _R_FCL_FCUFct_ChkSuspended..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf854e+00004c _R_FCL_FCUFct_Chk_DBFull..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf87e2+000054 _R_FCL_FCUFct_ClearStatus..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf84ee+000060 _R_FCL_FCUFct_Clear_Cache..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf96c0+000000 _R_FCL_FCUFct_Clear_Cache_Asm
+ .R_FCL_CODE_ROMRAM fedf9cde+000144 _R_FCL_FCUFct_Erase
+ .R_FCL_CODE_RAM  fedf8764+000058 _R_FCL_FCUFct_ForcedStop..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_ROMRAM fedf9b5a+000022 _R_FCL_FCUFct_GetBlockCnt
+ .R_FCL_CODE_ROMRAM fedf9bb4+00012a _R_FCL_FCUFct_GetBlockEndAddr
+ .R_FCL_CODE_RAM  fedf88fc+0000b0 _R_FCL_FCUFct_GetConfigArea
+ .R_FCL_CODE_RAM  fedf8bf6+00024c _R_FCL_FCUFct_GetDeviceInfo..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_ROMRAM fedf9b7c+000038 _R_FCL_FCUFct_GetDeviceName
+ .R_FCL_CODE_RAM  fedf884e+0000ae _R_FCL_FCUFct_GetResult..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_ROMRAM fedf9ab4+0000a6 _R_FCL_FCUFct_GetSecurityFlag
+ .R_FCL_CODE_ROMRAM fedf9f50+0000fe _R_FCL_FCUFct_HandleLockBit
+ .R_FCL_CODE_RAM  fedf8e6c+000828 _R_FCL_FCUFct_HandleMultiOperation
+ .R_FCL_CODE_RAM  fedf8e42+00002a _R_FCL_FCUFct_HandleMultiOperation_IntErr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_ROMRAM fedf97e4+00011e _R_FCL_FCUFct_HandleResume
+ .R_FCL_CODE_ROMRAM fedfa04e+00001e _R_FCL_FCUFct_LockBitMode
+ .R_FCL_CODE_RAM  fedf89d0+000226 _R_FCL_FCUFct_PrepareEnvironment
+ .R_FCL_CODE_RAM  fedf89ac+000024 _R_FCL_FCUFct_PrepareEnvironment_IntErr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8836+000018 _R_FCL_FCUFct_RestoreLastState..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_ROMRAM fedf9920+000194 _R_FCL_FCUFct_SetConfigArea
+ .R_FCL_CODE_RAM  fedf8624+00007c _R_FCL_FCUFct_SetFrequency..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8736+00002e _R_FCL_FCUFct_SwitchMode_Check
+ .R_FCL_CODE_RAM  fedf86a0+000096 _R_FCL_FCUFct_SwitchMode_Start
+ .R_FCL_CODE_RAM  fedf9694+000000 _R_FCL_FCUFct_Switch_BFlash
+ .R_FCL_CODE_RAM  fedf859a+00008a _R_FCL_FCUFct_VerifyChecksum..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf847a+000074 _R_FCL_FCUFct_VerifyID..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_ROMRAM fedf9e22+00012e _R_FCL_FCUFct_Write
+ .R_FCL_CODE_ROMRAM fedf97c0+000024 _R_FCL_Fct_CallFromRAM
+ .R_FCL_CODE_ROM  fedfa42c+000000 _R_FCL_Fct_CodeExProt_CalcRange
+ .R_FCL_CODE_ROM  fedfa3d8+000000 _R_FCL_Fct_CodeRam_CalcRange
+ .R_FCL_CODE_ROM  fedfa3bc+000000 _R_FCL_Fct_CodeRomRam_CalcRange
+ .R_FCL_CODE_ROM  fedfa410+000000 _R_FCL_Fct_CodeUsrInt_CalcRange
+ .R_FCL_CODE_ROM  fedfa3f4+000000 _R_FCL_Fct_CodeUsr_CalcRange
+ .R_FCL_CODE_RAM  fedf970e+000000 _R_FCL_Fct_Copy_Code
+ .R_FCL_CODE_ROM  fedfa448+000000 _R_FCL_Fct_PrgOffset
+                  00000000+000008 _R_FCL_GetVersionString
+ .R_FCL_CODE_RAM  fedf9726+00009a _R_FCL_Handler
+ .R_FCL_CODE_RAM  fedf846e+00000c _R_FCL_I_GetCPUCorePid..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf840c+000006 _R_FCL_I_read_memory_u08..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8406+000006 _R_FCL_I_read_memory_u16..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8400+000006 _R_FCL_I_read_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8464+00000a _R_FCL_I_write_memory_u08
+ .R_FCL_CODE_RAM  fedf845a+00000a _R_FCL_I_write_memory_u16..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8452+000008 _R_FCL_I_write_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_RAM  fedf8412+000040 _R_FCL_I_write_unaligned_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+ .R_FCL_CODE_ROM  fedfa458+00004c _R_FCL_Init
+                  00000000+00005c _R_FCL_ResumeRequest
+                  00000000+00003e _R_FCL_SuspendRequest
+                  00000002+000000 ___ghs_log_fee_level
+ .R_FCL_CODE_RAM  fedf8400+000000 ___ghsbegin_R_FCL_CODE_RAM
+ .R_FCL_CODE_RAM_EX_PROT fedfa4b4+000000 ___ghsbegin_R_FCL_CODE_RAM_EX_PROT
+ .R_FCL_CODE_ROMRAM fedf97c0+000000 ___ghsbegin_R_FCL_CODE_ROMRAM
+ .R_FCL_CODE_USR  fedfa3bc+000000 ___ghsbegin_R_FCL_CODE_USR
+ .R_FCL_CODE_USRINT fedfa3bc+000000 ___ghsbegin_R_FCL_CODE_USRINT
+ .rosdata         fedfa4a4+000000 ___ghsbegin_rosdata
+ .sdabase         fedf8000+000000 ___ghsbegin_sdabase
+ .tdata           fedfa4b4+000000 ___ghsbegin_tdata
+ .secinfo         fedfa4b4+000000 ___ghsbinfo_bcopy
+ .secinfo         fedfa4b4+000000 ___ghseinfo_bcopy
+ .R_FCL_CODE_RAM  fedf97c0+000000 ___ghsend_R_FCL_CODE_RAM
+ .R_FCL_CODE_RAM_EX_PROT fedfa4d4+000000 ___ghsend_R_FCL_CODE_RAM_EX_PROT
+ .R_FCL_CODE_ROMRAM fedfa33a+000000 ___ghsend_R_FCL_CODE_ROMRAM
+ .R_FCL_CODE_USR  fedfa3bc+000000 ___ghsend_R_FCL_CODE_USR
+ .R_FCL_CODE_USRINT fedfa3bc+000000 ___ghsend_R_FCL_CODE_USRINT
+ .tdata           fedfa4b4+000000 __ep
+                  00000000+000000 __ghs_v800_sda_model
+ .sdabase         fee00000+000000 __gp
+ .rosdata         fee024a4+000000 __tp
+ .sbss            fedfa4a4+000004 _currentFblEP
+ .sbss            fedfa4a8+000004 _currentFblGP
+ .sbss            fedfa4ac+000004 _currentFblTP
+ .R_FCL_CONST     fedfa4d4+000013 _fcl_ver_str.R_FCL_GetVersionString.D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_user_if..0
+ .signature       fedf8000+000014 _flashHeader
+ .R_FCL_DATA      fedfa33c+000080 _g_fcl_data_str
+ .sbss            fedfa4b0+000004 _pflashParam
+
+Load Map Tue Oct 08 07:56:04 2019
+Global Cross Reference
+
+_AsmDummy
+_ExpFlashDeinit     flashdrv.o              fedf8008
+_ExpFlashErase      flashdrv.o              fedf800c
+_ExpFlashInit       flashdrv.o              fedf8004
+_ExpFlashWrite      flashdrv.o              fedf8010
+_FblDrvFlashGetBlockByAddr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cflashdrv.
+_FblDrvFlashHandleWD..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cflashdrv.
+_R_FCL_CalcFctAddr
+_R_FCL_CancelRequest
+_R_FCL_CopySections
+_R_FCL_Execute      flashdrv.o              fedf80f3 fedf8135 fedf8207 fedf822f fedf8283
+                                            fedf8341 fedf83c5
+_R_FCL_FCUFct_CheckMode r_fcl_hw_access.o       fedf9931 fedf9cef fedf9e2d fedf9f61
+                    r_fcl_user_if.o         fedfa08f
+_R_FCL_FCUFct_ChkReg r_fcl_hw_access.o       fedf8585 fedf87a7
+_R_FCL_FCUFct_ChkSuspended..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_Chk_DBFull..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_ClearStatus..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_Clear_Cache..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_Clear_Cache_Asm r_fcl_hw_access.o       fedf853d
+_R_FCL_FCUFct_Erase r_fcl_user_if.o         fedfa0df
+_R_FCL_FCUFct_ForcedStop..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_GetBlockCnt r_fcl_user_if.o         fedfa29d
+_R_FCL_FCUFct_GetBlockEndAddr r_fcl_user_if.o         fedfa2bd
+_R_FCL_FCUFct_GetConfigArea r_fcl_hw_access.o       fedf97dd
+_R_FCL_FCUFct_GetDeviceInfo..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_GetDeviceName r_fcl_user_if.o         fedfa27d
+_R_FCL_FCUFct_GetResult..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_GetSecurityFlag r_fcl_user_if.o         fedfa303
+_R_FCL_FCUFct_HandleLockBit r_fcl_user_if.o         fedfa123 fedfa133
+_R_FCL_FCUFct_HandleMultiOperation r_fcl_user_if.o         fedf97b9
+_R_FCL_FCUFct_HandleMultiOperation_IntErr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_HandleResume r_fcl_user_if.o         fedf9749
+_R_FCL_FCUFct_LockBitMode r_fcl_user_if.o         fedfa145 fedfa157
+_R_FCL_FCUFct_PrepareEnvironment r_fcl_user_if.o         fedf97b3
+_R_FCL_FCUFct_PrepareEnvironment_IntErr..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_RestoreLastState..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_SetConfigArea r_fcl_user_if.o         fedfa19b fedfa1df fedfa227 fedfa25d
+_R_FCL_FCUFct_SetFrequency..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_SwitchMode_Check r_fcl_hw_access.o       fedf8b33 fedf8b77 fedf8f1b fedf9559 fedf97fd
+                    r_fcl_user_if.o         fedf977d
+_R_FCL_FCUFct_SwitchMode_Start r_fcl_hw_access.o       fedf8aed fedf8b55 fedf8ec5 fedf8ed1 fedf9543
+                                            fedf9637
+                    r_fcl_user_if.o         fedf9769
+_R_FCL_FCUFct_Switch_BFlash r_fcl_hw_access.o       fedf85b5 fedf85d9 fedf890f fedf898b fedf8a1d
+                                            fedf8a31 fedf8ac3
+_R_FCL_FCUFct_VerifyChecksum..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_VerifyID..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_FCUFct_Write r_fcl_user_if.o         fedfa101
+_R_FCL_Fct_CallFromRAM r_fcl_user_if.o         fedfa179 fedfa1bd fedfa203
+_R_FCL_Fct_CodeExProt_CalcRange
+_R_FCL_Fct_CodeRam_CalcRange
+_R_FCL_Fct_CodeRomRam_CalcRange
+_R_FCL_Fct_CodeUsrInt_CalcRange
+_R_FCL_Fct_CodeUsr_CalcRange
+_R_FCL_Fct_Copy_Code r_fcl_hw_access.o       fedf8a77 fedf8b25
+_R_FCL_Fct_PrgOffset
+_R_FCL_GetVersionString
+_R_FCL_Handler      flashdrv.o              fedf80fd fedf813f fedf8211 fedf8239 fedf828d
+                                            fedf834b fedf83cf
+_R_FCL_I_GetCPUCorePid..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_I_read_memory_u08..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_I_read_memory_u16..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_I_read_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_I_write_memory_u08 r_fcl_hw_access.o       fedf8421 fedf842f fedf843d fedf844b fedf8771
+                                            fedf881f fedf882f fedf8975 fedf89bf fedf8a09
+                                            fedf8b09 fedf8b69 fedf902f fedf903f fedf906d
+                                            fedf907d fedf90fb fedf910b fedf912f fedf913f
+                                            fedf9163 fedf9175 fedf9183 fedf91d3 fedf9283
+                                            fedf92e7 fedf987d fedf9b9b
+                    r_fcl_user_if.o         fedfa46f
+_R_FCL_I_write_memory_u16..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_I_write_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_I_write_unaligned_memory_u32..D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_hw_access.
+_R_FCL_Init         flashdrv.o              fedf81ef
+_R_FCL_ResumeRequest
+_R_FCL_SuspendRequest
+___ghs_log_fee_level
+___ghsbegin_R_FCL_CODE_RAM r_fcl_hw_access_asm.o   fedfa3da fedfa3de
+___ghsbegin_R_FCL_CODE_RAM_EX_PROT r_fcl_hw_access_asm.o   fedfa42e fedfa432
+___ghsbegin_R_FCL_CODE_ROMRAM r_fcl_hw_access_asm.o   fedfa3be fedfa3c2
+___ghsbegin_R_FCL_CODE_USR r_fcl_hw_access_asm.o   fedfa3f6 fedfa3fa
+___ghsbegin_R_FCL_CODE_USRINT r_fcl_hw_access_asm.o   fedfa412 fedfa416
+___ghsbegin_rosdata flashdrv.o              fedf8054 fedf8058
+___ghsbegin_sdabase flashdrv.o              fedf804c fedf8050
+___ghsbegin_tdata   flashdrv.o              fedf805c fedf8060
+___ghsbinfo_bcopy
+___ghseinfo_bcopy
+___ghsend_R_FCL_CODE_RAM r_fcl_hw_access_asm.o   fedfa3e2 fedfa3e6
+___ghsend_R_FCL_CODE_RAM_EX_PROT r_fcl_hw_access_asm.o   fedfa436 fedfa43a
+___ghsend_R_FCL_CODE_ROMRAM r_fcl_hw_access_asm.o   fedfa3c6 fedfa3ca
+___ghsend_R_FCL_CODE_USR r_fcl_hw_access_asm.o   fedfa3fe fedfa402
+___ghsend_R_FCL_CODE_USRINT r_fcl_hw_access_asm.o   fedfa41a fedfa41e
+__ep
+__ghs_v800_sda_model
+__gp
+__tp
+_currentFblEP       flashdrv.o              fedf801e fedf8022 fedf806e fedf8072
+_currentFblGP       flashdrv.o              fedf802a fedf802e fedf8086 fedf808a
+_currentFblTP       flashdrv.o              fedf8036 fedf803a fedf807a fedf807e
+_fcl_ver_str.R_FCL_GetVersionString.D.3A.5Cusr.5Cusage.5CDelivery.5CCBD19x.5CCBD1900847.5CD00.5Cexternal.5CBSW.5CFlash.5CBuild.5Cobj.5Cr_fcl_user_if..0
+_flashHeader
+_g_fcl_data_str     r_fcl_user_if.o         fedfa460 fedf972c fedfa074
+                    r_fcl_hw_access.o       fedf8486 fedf851a fedf8554 fedf862a fedf8728
+                                            fedf8750 fedf8776 fedf8838 fedf8902 fedf89c4
+                                            fedf89d6 fedf8bfc fedf8e4c fedf8e72 fedf97c6
+                                            fedf97ea fedf9926 fedf9aba fedf9b60 fedf9b82
+                                            fedf9bba fedf9ce4 fedf9e28 fedf9f56 fedfa054
+_pflashParam        flashdrv.o              fedf80b8 fedf81aa fedf82ce fedf82de fedf82f0
+                                            fedf82f8 fedf8314 fedf831c fedf838c fedf83a2
+                                            fedf83ac fedf83b6
