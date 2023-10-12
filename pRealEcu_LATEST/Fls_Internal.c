@@ -388,7 +388,7 @@ FUNC(r_fdl_status_t, FLS_PRIVATE_CODE)Fls_DFProcessReadImmCommand(void){
   uint8 LucReadData;
   uint16 LusReadData;
   uint32 LulReadData;
-  uint8 LucLenOffset = FLS_ZERO;
+  uint8 Llu8LenOffset = FLS_ZERO;
 
   uint32 LulErrorStatus = FLS_ZERO;
 
@@ -416,10 +416,10 @@ FUNC(r_fdl_status_t, FLS_PRIVATE_CODE)Fls_DFProcessReadImmCommand(void){
   else{
    if(FLS_MISALIGNED_READ != Fls_GVar.Fls_ReadType)
    {
-      LucLenOffset = (uint8)Fls_GVar.Fls_GulCurrentLength &
+      Llu8LenOffset = (uint8)Fls_GVar.Fls_GulCurrentLength &
                                              (FLS_PAGE_SIZE - FLS_ONE);
 
-      LulFDLLength = Fls_GVar.Fls_GulCurrentLength - LucLenOffset;
+      LulFDLLength = Fls_GVar.Fls_GulCurrentLength - Llu8LenOffset;
    }
    else{
 
@@ -532,7 +532,7 @@ FUNC(r_fdl_status_t, FLS_PRIVATE_CODE)Fls_DFProcessReadImmCommand(void){
       }
       LulReadStartAddress = LulReadStartAddress + R_FDL_WRITE_SIZE;
    }
-   switch(LucLenOffset)
+   switch(Llu8LenOffset)
    {
       case FLS_ONE:
 
@@ -562,15 +562,15 @@ FUNC(r_fdl_status_t, FLS_PRIVATE_CODE)Fls_DFProcessReadImmCommand(void){
 
         Fls_DF_write_memory_u08((uint32)Fls_GVar.pBufferAddress, LucReadData);
 
-        LucLenOffset = FLS_ONE;
+        Llu8LenOffset = FLS_ONE;
       break;
       default:
       break;
    }
 
-    Fls_GVar.pBufferAddress = Fls_GVar.pBufferAddress + LucLenOffset;
+    Fls_GVar.pBufferAddress = Fls_GVar.pBufferAddress + Llu8LenOffset;
 
-    LulReadStartAddress = LulReadStartAddress + LucLenOffset;
+    LulReadStartAddress = LulReadStartAddress + Llu8LenOffset;
   }
 
   Fls_GVar.Fls_GulReadAddress = LulReadStartAddress;
