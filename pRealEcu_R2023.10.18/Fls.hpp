@@ -140,7 +140,6 @@ extern FUNC(void, FLS_PUBLIC_CODE)Fls_GetVersionInfo
 
 #if(FLS_VERSION_INFO_API == STD_ON)
 #if(FLS_AR_VERSION  == FLS_AR_HIGHER_VERSION)
-
 #define Fls_GetVersionInfo(VersioninfoPtr)\
  { \
    (VersioninfoPtr)->vendorID = (uint16)FLS_VENDOR_ID; \
@@ -159,7 +158,6 @@ extern FUNC(void, FLS_PUBLIC_CODE)Fls_GetVersionInfo
    (VersioninfoPtr)->sw_minor_version = FLS_SW_MINOR_VERSION; \
    (VersioninfoPtr)->sw_patch_version = FLS_SW_PATCH_VERSION; \
  }
-
 #endif
 #endif
 #define FLS_STOP_SEC_PUBLIC_CODE
