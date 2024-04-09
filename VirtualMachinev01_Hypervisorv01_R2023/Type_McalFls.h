@@ -1,8 +1,8 @@
 #pragma once
 /******************************************************************************/
-/* File   : infMcalFlsSwcApplStartUp.h                                        */
+/* File   : Type_McalFls.h                                                    */
 /*                                                                            */
-/* Author : Raajnaag HULIYAPURADA MATA                                        */
+/* Author : Nagaraja HULIYAPURADA MATA                                        */
 /*                                                                            */
 /* License / Warranty / Terms and Conditions                                  */
 /*                                                                            */
@@ -14,7 +14,7 @@
 /* certain responsibilities, if you distribute copies of the software, or if  */
 /* you modify it: responsibilities to respect the freedom of others.          */
 /*                                                                            */
-/* All rights reserved. Copyright © 1982 Raajnaag HULIYAPURADA MATA           */
+/* All rights reserved. Copyright © 1982 Nagaraja HULIYAPURADA MATA           */
 /*                                                                            */
 /* Always refer latest software version from:                                 */
 /* https://github.com/RaajnaagHuliyapuradaMata?tab=repositories               */
@@ -24,7 +24,6 @@
 /******************************************************************************/
 /* #INCLUDES                                                                  */
 /******************************************************************************/
-#include "CompilerCfg_McalFls.h"
 
 /******************************************************************************/
 /* #DEFINES                                                                   */
@@ -37,6 +36,25 @@
 /******************************************************************************/
 /* TYPEDEFS                                                                   */
 /******************************************************************************/
+typedef enum{
+   McalFls_eStatusDeviceIdle = 0xFFu
+}Type_McalFls_eStatusDevice;
+
+typedef enum{
+      McalFls_eFunctionActive_None
+   ,  McalFls_eFunctionActive_Init
+   ,  McalFls_eFunctionActive_Deinit
+   ,  McalFls_eFunctionActive_Write
+   ,  McalFls_eFunctionActive_Erase
+   ,  McalFls_eFunctionActive_Verify
+}Type_McalFls_eFunctionActive;
+
+typedef uint32 SwcServiceStartUp_tAddressHeader;
+
+typedef struct{
+  SwcServiceStartUp_tAddressHeader tAddressHeaderBegin;
+  SwcServiceStartUp_tAddressHeader tAddressHeaderEnd;
+}Type_McalFls_stInfoBlock;
 
 /******************************************************************************/
 /* CONSTS                                                                     */
@@ -53,7 +71,6 @@
 /******************************************************************************/
 /* FUNCTIONS                                                                  */
 /******************************************************************************/
-extern FUNC(void, MCALFLS_CODE) infMcalFlsSwcApplStartUp_vInitPowerOn(void);
 
 /******************************************************************************/
 /* EOF                                                                        */
