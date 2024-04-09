@@ -124,7 +124,7 @@ void            R_FDL_IFct_CalcFOpUnitCnt_BC       (uint32_t *          cnt_pu32
 void            R_FDL_FCUFct_ForcedStop            (void);
 r_fdl_status_t  R_FDL_FCUFct_VerifyChecksum        (void);
 
-#define R_FDL_START_SEC_VAR		
+#define R_FDL_START_SEC_VAR
 #include "r_fdl_mem_map.hpp"
 
 #if R_FDL_COMPILER == R_FDL_COMP_GHS
@@ -137,7 +137,7 @@ r_fdl_status_t  R_FDL_FCUFct_VerifyChecksum        (void);
 
 extern R_FDL_NOINIT r_fdl_data_t   g_fdl_str;
 
-#define R_FDL_STOP_SEC_VAR	
+#define R_FDL_STOP_SEC_VAR
 #include "r_fdl_mem_map.hpp"
 
 #ifdef PATCH_TO_SIMULATE_ERRORS
