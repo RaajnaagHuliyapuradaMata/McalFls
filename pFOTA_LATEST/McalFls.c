@@ -3,7 +3,6 @@ extern "C"
 {
 #endif
 
-
 #include "flashdrv.hpp"
 #include "r_typedefs.hpp"
 #include "CfgMcalFls_Fcl.hpp"

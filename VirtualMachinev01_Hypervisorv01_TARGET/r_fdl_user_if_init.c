@@ -1,6 +1,5 @@
 #include "Std_Types.hpp"
 
-
 #ifdef ENABLE_QAC_TEST
     #pragma PRQA_MESSAGES_OFF 0292
 #endif
